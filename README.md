@@ -68,7 +68,7 @@ Only one step! :)
             $ gem install foreman heroku
             $ foreman start -f Procfile.dev
 
-Look good?
+Look good? Press CTRL-C to exit.
 
 Deploy to Heroku
 ----------------
