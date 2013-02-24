@@ -52,9 +52,16 @@ Only four steps!
             $ cd flask-boilerplate
 
 1. Create and activate a virtualenv:
-        
+    
+- Unix:
+
             $ virtualenv venv --no-site-packages
             $ source venv/bin/activate
+
+- Windws:  
+
+            $ virtualenv venv --no-site-packages
+            $ venv\scripts\activate
         
 1. Install requirements:
         
@@ -100,8 +107,18 @@ Only 4 steps!!
             $ heroku ps
             $ heroku open
             
-Next Steps
+What's next?
 ---------
+
+1. Deactivate virtualenv: `deactivate`
+1. Reactivate virtualenv:
+
+- Unix: `source venv/bin/activate`
+- Windows: `venv\scripts\activate`
+
+1. If you need to look at Heroku error logs - `heroku logs`
+1. Add your Google Analytics ID to the *template.html* file
+1. 
 
 
         
