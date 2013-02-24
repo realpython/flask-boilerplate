@@ -1,3 +1,5 @@
+work in progess ... should be complete by Sunday night ..
+
 #------------------------------------------------------------------------------#
 Flask-Boilerplate
 =================
@@ -97,4 +99,9 @@ Only 4 steps!!
 
             $ heroku ps
             $ heroku open
+            
+Next Steps
+---------
+
+
         
