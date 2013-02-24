@@ -60,7 +60,7 @@ Only four steps!
             $ virtualenv venv --no-site-packages
             $ source venv/bin/activate
 
-- Windws:  
+- Windows:  
 
             $ virtualenv venv --no-site-packages
             $ venv\scripts\activate
