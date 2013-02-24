@@ -110,12 +110,7 @@ What's next?
 ---------
 
 1. Deactivate virtualenv: `deactivate`
-2. Reactivate virtualenv:
-
-    Unix: `source venv/bin/activate`
-    
-    Windows: `venv\scripts\activate`
-
+2. Reactivate virtualenv: (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
 3. If you need to look at Heroku error logs - `heroku logs`
 4. Add your Google Analytics ID to the *template.html* file
 5. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
