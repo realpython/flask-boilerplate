@@ -120,5 +120,12 @@ What's next?
 1. Add your Google Analytics ID to the *template.html* file
 1. 
 
+Learn More
+---------
 
+1. [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/python)
+1. [Flask Documentation](http://flask.pocoo.org/docs/)
+2. [Flask Extensions](http://flask.pocoo.org/extensions/)
+1. Need a different employment option? Check out [PythonAnywhere](https://www.pythonanywhere.com/)
+1. [Real Python for the Web](http://www.realpythonfortheweb.com) :)
         
