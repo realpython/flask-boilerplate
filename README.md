@@ -45,19 +45,19 @@ Install
 Only four steps!
 
 1. Install [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
-1. Clone this repo: 
+2. Clone this repo: 
 
             $ git clone git://github.com/mjhea0/flask-boilerplate.git
             $ cd flask-boilerplate
 
-1. Create and activate a virtualenv:
+3. Create and activate a virtualenv:
     
-- Unix:
+    Unix:
 
             $ virtualenv venv --no-site-packages
             $ source venv/bin/activate
 
-- Windows:  
+    Windows:  
 
             $ virtualenv venv --no-site-packages
             $ venv\scripts\activate
@@ -110,16 +110,17 @@ What's next?
 ---------
 
 1. Deactivate virtualenv: `deactivate`
-1. Reactivate virtualenv:
+2. Reactivate virtualenv:
 
-- Unix: `source venv/bin/activate`
-- Windows: `venv\scripts\activate`
+    Unix: `source venv/bin/activate`
+    
+    Windows: `venv\scripts\activate`
 
 3. If you need to look at Heroku error logs - `heroku logs`
 4. Add your Google Analytics ID to the *template.html* file
 5. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
-1. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
-1. Sign up for Github, create a new repo, push your app.
+5. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
+7. Sign up for Github, create a new repo, push your app.
 
 Learn More
 ---------
