@@ -41,7 +41,7 @@ Project Structure
 Install
 ------
 
-Follow this 10 easy steps ...
+Follow these 10 easy steps ...
 
-1. Clone this repo.
+1. Clone this repo - `git clone git://github.com/mjhea0/flask-boilerplate.git`
 2. 
