@@ -1,4 +1,4 @@
-[![#](http://www.backwardsteps.com/4bJIj81361722486.png)](#features)
+[![#](http://www.backwardsteps.com/4bJIj81361722486.png)](/)
 ------------------------------------------------------------------------------
 
 Welcome
