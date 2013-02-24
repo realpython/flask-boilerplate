@@ -37,5 +37,8 @@ Project Structure
         error.log
         forms.py
         models.py
+
+Install
+------
         
         
