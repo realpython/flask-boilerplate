@@ -1,4 +1,3 @@
-
 Flask-Boilerplate
 =================
 ------------------------------------------------------------------------------
@@ -63,7 +62,7 @@ Only four steps!
             $ virtualenv venv --no-site-packages
             $ venv\scripts\activate
         
-1. Install requirements:
+4. Install requirements:
         
             $ pip install -r requirements.txt
 
@@ -116,9 +115,9 @@ What's next?
 - Unix: `source venv/bin/activate`
 - Windows: `venv\scripts\activate`
 
-1. If you need to look at Heroku error logs - `heroku logs`
-1. Add your Google Analytics ID to the *template.html* file
-1. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
+3. If you need to look at Heroku error logs - `heroku logs`
+4. Add your Google Analytics ID to the *template.html* file
+5. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
 1. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
 1. Sign up for Github, create a new repo, push your app.
 
