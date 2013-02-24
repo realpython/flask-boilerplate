@@ -51,7 +51,7 @@ Only four steps!
 
 1. Create and activate a virtualenv:
         
-            $ virtualenv venv --distribute --no-site-packages
+            $ virtualenv venv --no-site-packages
             $ source venv/bin/activate
         
 1. Install requirements:
