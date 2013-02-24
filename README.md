@@ -43,5 +43,7 @@ Install
 
 Follow these 10 easy steps ...
 
+1. Install [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [Pip](http://install.python-guide.org/) - if you don't already have them, of course
 1. Clone this repo - `git clone git://github.com/mjhea0/flask-boilerplate.git`
-2. 
+1. `cd flask-boilerplate`
+1. 
