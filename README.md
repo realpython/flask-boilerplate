@@ -129,6 +129,6 @@ Learn More
 1. [Flask Documentation](http://flask.pocoo.org/docs/)
 2. [Flask Extensions](http://flask.pocoo.org/extensions/)
 1. Need a different deployment option? Check out [PythonAnywhere](https://www.pythonanywhere.com/).
-    - Live example app: (FlaskTaskr)[realpython.pythonanywhere.com]
+    - Live example app: (FlaskTaskr)[http://realpython.pythonanywhere.com]
 1. [Real Python for the Web](http://www.realpythonfortheweb.com) :)
         
