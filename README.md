@@ -41,7 +41,7 @@ Project Structure
 Install
 ------
 
-Follow these 10 easy steps ...
+Only four steps!
 
 1. Install [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
 1. Clone this repo: 
@@ -57,3 +57,30 @@ Follow these 10 easy steps ...
 1. Install requirements:
         
             $ pip install -r requirements.txt
+
+Test Locally
+-----------
+
+Only one step! :)
+
+1. Download the gem and then run locally:
+
+            $ gem install foreman heroku
+            $ foreman start -f Procfile.dev
+
+Look good?
+
+Deploy to Heroku
+----------------
+
+1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
+1. Generate SSH keys (use the same email and password used to sign up for Heroku):
+
+            $ heroku login
+              Enter your Heroku credentials.
+              Email: michael@mherman.org
+              Password (typing will be hidden): 
+              Could not find an existing public key.
+              Would you like to generate one? [Yn]
+              Generating new SSH public key.
+              Uploading ssh public key /Users/michaelherman/.ssh/id_rsa.pub
