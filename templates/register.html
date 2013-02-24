@@ -1,0 +1,25 @@
+{% extends "template.html" %}
+{% block title %} - Register{% endblock %}
+{% block content %}
+  <h1>Welcome!</h1>
+  <h3>Please register.</h3>
+    <form method="POST" action="">
+      <table>
+        <tr>
+          <td>{{ form.name.label }}{{ form.name }}&nbsp;&nbsp;</td>
+          <td>{{ form.email.label }}{{ form.email }}</td>
+        </tr>
+        <tr>
+          <td>{{ form.password.label }}{{ form.passwd }}&nbsp;&nbsp;</td>
+          <td>{{ form.confirm.label }}{{ form.confirm }}</td>
+        </tr>
+      </table>
+      <p><input type="submit" value="Register" class="btn-primary"></p>
+    </form>
+    <p><em>Already registered?</em> Click <a href="#">here</a> to login.</p>
+{% endblock %}
+
+
+
+
+

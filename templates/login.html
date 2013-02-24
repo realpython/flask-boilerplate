@@ -1,0 +1,14 @@
+{% extends "template.html" %}
+{% block title %} - Login{% endblock %}
+{% block content %}
+  <h1>Welcome!</h1>
+  <h3>Please login.</h3>
+    <form method="POST" action="">
+      {{ form.name.label }}{{ form.name }}
+      {{ form.passwd.label }}{{ form.passwd }}
+      <p><input type="submit" value="Submit" class="btn-primary"></p>
+    </form>
+    <p><em>Need an account? </em><a href="/register">Signup!!</a></p>
+{% endblock %}
+
+

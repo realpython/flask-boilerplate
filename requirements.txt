@@ -1,0 +1,5 @@
+Flask
+Flask-Script
+Flask-WTF
+Flask-SQLAlchemy
+Flask-Auth
