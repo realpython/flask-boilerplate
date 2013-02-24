@@ -40,5 +40,8 @@ Project Structure
 
 Install
 ------
-        
-        
+
+Follow this 10 easy steps ...
+
+1. Clone this repo.
+2. 
