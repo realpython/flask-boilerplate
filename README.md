@@ -118,7 +118,8 @@ What's next?
 
 1. If you need to look at Heroku error logs - `heroku logs`
 1. Add your Google Analytics ID to the *template.html* file
-1. 
+1. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
+1. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
 
 Learn More
 ---------
