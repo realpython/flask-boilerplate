@@ -73,8 +73,10 @@ Look good?
 Deploy to Heroku
 ----------------
 
+Only 4 steps!!
+
 1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
-1. Generate SSH keys (use the same email and password used to sign up for Heroku):
+1. Generate SSH key (use the same email and password used to sign up for Heroku):
 
             $ heroku login
               Enter your Heroku credentials.
@@ -84,3 +86,15 @@ Deploy to Heroku
               Would you like to generate one? [Yn]
               Generating new SSH public key.
               Uploading ssh public key /Users/michaelherman/.ssh/id_rsa.pub
+
+1. Deploy:
+
+            $ heroku create
+            $ git push heroku master
+            $ heroku ps:scale web=1
+
+1. Test to make sure it's up and running:
+
+            $ heroku ps
+            $ heroku open
+        
