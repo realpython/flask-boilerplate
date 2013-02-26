@@ -84,7 +84,7 @@ Deploy to Heroku
     
             $ git init
             $ git add .
-            $ git commit -m "initial"
+            $ git commit -m "init"
 
 1. Deploy:
 
