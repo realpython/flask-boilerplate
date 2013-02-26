@@ -103,6 +103,22 @@ Deploying to PythonAnywhere
 
 1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course
 1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
+2. Once logged in, you should be on the Consoles tab. Under the header "Start a new console:" click the link for Bash, which will open a new terminal. 
+3. Clone this repo: 
+
+            $ git clone git://github.com/mjhea0/flask-boilerplate.git
+            $ cd flask-boilerplate
+            
+3. Create and activate a virtualenv:
+
+            $ virtualenv venv --no-site-packages
+            $ source venv/bin/activate
+
+4. Install requirements:
+        
+            $ pip install -r requirements.txt
+
+5. Click the link for Dashboard, then the link for files. You should see the directory the clone create. Click on it to see the files inside.
 
 in progress ...
 
