@@ -7,6 +7,8 @@ Welcome
 -------
 Hello. Want to get started with Flask quickly? Good. You are at the right place. This Flask application framework is pre-configured with Flask-SQLAlchemy, Flask-WTF, and the Twiiter Bootstrap frontend. This will get your Flask app up and running on Heroku or PythonANywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
 
+Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
+
 **What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2. It's intended for getting started very quickly and was developed with best intentions in mind. :)
 
 Project Structure
@@ -94,6 +96,8 @@ Deploying to Heroku
             $ heroku ps
             $ heroku open
             
+1. You app should look similar to this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
+            
 1. Having problems? Look at the Heroku error log:
 
             $ heroku logs
@@ -118,9 +122,16 @@ Deploying to PythonAnywhere
         
             $ pip install -r requirements.txt
 
-5. Click the link for Dashboard, then the link for Files. You should see the directory the clone create. Click on it to see the files inside.
+5. Click the link for Dashboard, then the link for Web.
+6. Now you need to edit the WSGI file. Update the following line of code:
 
-in progress ...
+            project_home = u'/home/realpython/mysite'
+to:
+
+            project_home = u'/home/realpython/flask-boilerplate'
+
+7. Save the file, then click the back button. Click the Reload web app. You're now good to go.
+8. Click the link to view the live app. You should see something similar to this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
 
 What's next?
 ---------
