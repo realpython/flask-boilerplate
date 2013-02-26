@@ -136,10 +136,10 @@ to:
 What's next?
 ---------
 
-1. Using Heroku? Make sure you deactivate your virtualenv one done deplying:
+1. Using Heroku? Make sure you deactivate your virtualenv once done deplying:
 
-- Deactivate virtualenv: `deactivate`
-- Reactivate virtualenv: (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
+Deactivate virtualenv: `deactivate`
+Reactivate virtualenv: (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
 
 4. Add your Google Analytics ID to the *template.html* file
 5. Add a domain name to [Heroku](https://devcenter.heroku.com/articles/custom-domains) or PythonAnywhere via a [CNAME](http://en.wikipedia.org/wiki/CNAME_record) record
