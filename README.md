@@ -43,11 +43,20 @@ Project Structure
 Install
 ------
 
-Only five steps!
-
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
 1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
-2. Clone this repo: 
+1. Generate SSH key (use the same email and password used to sign up for Heroku):
+
+            $ heroku login
+              Enter your Heroku credentials.
+              Email: michael@mherman.org
+              Password (typing will be hidden): 
+              Could not find an existing public key.
+              Would you like to generate one? [Yn]
+              Generating new SSH public key.
+              Uploading ssh public key /Users/michaelherman/.ssh/id_rsa.pub
+
+3. Clone this repo: 
 
             $ git clone git://github.com/mjhea0/flask-boilerplate.git
             $ cd flask-boilerplate
@@ -71,24 +80,11 @@ Only five steps!
 Deploy to Heroku
 ----------------
 
-Only 4 steps!!
-
 1. Create a local repo:
     
             $ git init
-            $ git add *
+            $ git add .
             $ git commit -m "initial"
-
-1. Generate SSH key (use the same email and password used to sign up for Heroku):
-
-            $ heroku login
-              Enter your Heroku credentials.
-              Email: michael@mherman.org
-              Password (typing will be hidden): 
-              Could not find an existing public key.
-              Would you like to generate one? [Yn]
-              Generating new SSH public key.
-              Uploading ssh public key /Users/michaelherman/.ssh/id_rsa.pub
 
 1. Deploy:
 
