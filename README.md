@@ -101,7 +101,7 @@ Deploying to Heroku
 Deploying to PythonAnywhere
 ------
 
-1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
+1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course
 1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
 
 What's next?
@@ -118,6 +118,7 @@ Learn More
 ---------
 
 1. [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/python)
+2. [PythonAnywhere - Help](https://www.pythonanywhere.com/help/)
 1. [Flask Documentation](http://flask.pocoo.org/docs/)
 2. [Flask Extensions](http://flask.pocoo.org/extensions/)
 1. [Real Python for the Web](http://www.realpythonfortheweb.com) :)
