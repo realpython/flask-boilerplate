@@ -104,6 +104,8 @@ Deploying to PythonAnywhere
 1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course
 1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
 
+in progress ...
+
 What's next?
 ---------
 
