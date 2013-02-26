@@ -5,9 +5,9 @@ Currently in beta ...
 
 Welcome
 -------
-Hello. Want to get started with Flask quickly? Good. You are at the right place. This Flask application framework is pre-configured with Flask-SQLAlchemy, Flask-WTF, and the Twiiter Bootstrap frontend. This will get your Flask app up and running on Heroku quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
+Hello. Want to get started with Flask quickly? Good. You are at the right place. This Flask application framework is pre-configured with Flask-SQLAlchemy, Flask-WTF, and the Twiiter Bootstrap frontend. This will get your Flask app up and running on Heroku or PythonANywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
 
-**What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2. It's intended for getting started very quickly and was developed with best intentions in mind.
+**What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2. It's intended for getting started very quickly and was developed with best intentions in mind. :)
 
 Project Structure
 --------
@@ -40,7 +40,7 @@ Project Structure
         forms.py
         models.py
 
-Install
+Deploy to Heroku
 ------
 
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
@@ -77,9 +77,6 @@ Install
         
             $ pip install -r requirements.txt
 
-Deploy to Heroku
-----------------
-
 1. Create a local repo:
     
             $ git init
@@ -97,14 +94,23 @@ Deploy to Heroku
             $ heroku ps
             $ heroku open
             
+1. Having problems? Look at the Heroku error log:
+
+            $ heroku logs
+
+Deploy to PythonAnywhere
+------
+
+1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
+1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
+
 What's next?
 ---------
 
 1. Deactivate virtualenv: `deactivate`
 2. Reactivate virtualenv: (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
-3. If you need to look at Heroku error logs - `heroku logs`
 4. Add your Google Analytics ID to the *template.html* file
-5. Add a [domain name](https://devcenter.heroku.com/articles/custom-domains)
+5. Add a on domain name to [Heroku](https://devcenter.heroku.com/articles/custom-domains)
 5. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
 7. Sign up for Github, create a new repo, push your app.
 
@@ -114,7 +120,5 @@ Learn More
 1. [Getting Started with Python on Heroku](https://devcenter.heroku.com/articles/python)
 1. [Flask Documentation](http://flask.pocoo.org/docs/)
 2. [Flask Extensions](http://flask.pocoo.org/extensions/)
-1. Need a different deployment option? Check out [PythonAnywhere](https://www.pythonanywhere.com/).
-    - Live example app: [FlaskTaskr](http://realpython.pythonanywhere.com)
 1. [Real Python for the Web](http://www.realpythonfortheweb.com) :)
         
