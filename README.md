@@ -46,6 +46,7 @@ Install
 Only four steps!
 
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
+1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
 2. Clone this repo: 
 
             $ git clone git://github.com/mjhea0/flask-boilerplate.git
@@ -67,24 +68,12 @@ Only four steps!
         
             $ pip install -r requirements.txt
 
-Test Locally
------------
-
-Only one step! :)
-
-1. Download the gem and then run locally:
-
-            $ gem install foreman heroku
-            $ foreman start -f Procfile.dev
-
-Look good? Press CTRL-C to exit.
-
 Deploy to Heroku
 ----------------
 
 Only 4 steps!!
 
-1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
+1. 
 1. Generate SSH key (use the same email and password used to sign up for Heroku):
 
             $ heroku login
