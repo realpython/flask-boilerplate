@@ -43,7 +43,7 @@ Project Structure
 Install
 ------
 
-Only four steps!
+Only five steps!
 
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
 1. Sign up for [Heroku](https://api.heroku.com/signup), if you haven't already, and install the [Heroku Toolbelt](https://toolbelt.heroku.com/), if you haven't already.
@@ -73,7 +73,12 @@ Deploy to Heroku
 
 Only 4 steps!!
 
-1. 
+1. Create a local repo:
+    
+            $ git init
+            $ git add *
+            $ git commit -m "initial"
+
 1. Generate SSH key (use the same email and password used to sign up for Heroku):
 
             $ heroku login
