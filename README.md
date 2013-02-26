@@ -118,7 +118,7 @@ Deploying to PythonAnywhere
         
             $ pip install -r requirements.txt
 
-5. Click the link for Dashboard, then the link for files. You should see the directory the clone create. Click on it to see the files inside.
+5. Click the link for Dashboard, then the link for Files. You should see the directory the clone create. Click on it to see the files inside.
 
 in progress ...
 
