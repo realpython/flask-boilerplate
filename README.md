@@ -40,7 +40,7 @@ Project Structure
         forms.py
         models.py
 
-Deploy to Heroku
+Deploying to Heroku
 ------
 
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
@@ -98,7 +98,7 @@ Deploy to Heroku
 
             $ heroku logs
 
-Deploy to PythonAnywhere
+Deploying to PythonAnywhere
 ------
 
 1. Install [Git](http://git-scm.com/downloads), [Python](http://install.python-guide.org/), [virtualenv](http://install.python-guide.org/), and [pip](http://install.python-guide.org/) - if you don't already have them, of course
@@ -110,7 +110,7 @@ What's next?
 1. Deactivate virtualenv: `deactivate`
 2. Reactivate virtualenv: (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
 4. Add your Google Analytics ID to the *template.html* file
-5. Add a on domain name to [Heroku](https://devcenter.heroku.com/articles/custom-domains)
+5. Add a domain name to [Heroku](https://devcenter.heroku.com/articles/custom-domains) or PythonAnywhere via a (CNAME)[http://en.wikipedia.org/wiki/CNAME_record] record
 5. DEVELOP YOUR APP - need [help](http://www.youtube.com/playlist?list=PLLjmbh6XPGK5pM1QJ8I1ccdGiCTHa1IC8)?
 7. Sign up for Github, create a new repo, push your app.
 
