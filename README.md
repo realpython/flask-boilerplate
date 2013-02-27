@@ -105,7 +105,7 @@ Deploying to Heroku
 Deploying to PythonAnywhere
 ------
 
-1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course. **Note=>** If you plan on workly exclusively within PythonAnywhere, which you can, because it provides a cloud solution of hosting and developing your application
+1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course. **Note=>** If you plan on working exclusively within PythonAnywhere, which you can, because it provides a cloud solution for hosting and developing your application, you can skip step one entirely. :) 
 1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
 1. Once logged in, you should be on the Consoles tab. Under the header "Start a new console:" click the link for Bash, which will open a new terminal. 
 1. Clone this repo: 
