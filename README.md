@@ -105,33 +105,72 @@ Deploying to Heroku
 Deploying to PythonAnywhere
 ------
 
-1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course
+1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course. **Note=>** If you plan on workly exclusively within PythonAnywhere, which you can, because it provides a cloud solution of hosting and developing your application
 1. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
-2. Once logged in, you should be on the Consoles tab. Under the header "Start a new console:" click the link for Bash, which will open a new terminal. 
-3. Clone this repo: 
+1. Once logged in, you should be on the Consoles tab. Under the header "Start a new console:" click the link for Bash, which will open a new terminal. 
+1. Clone this repo: 
 
             $ git clone git://github.com/mjhea0/flask-boilerplate.git
             $ cd flask-boilerplate
             
-3. Create and activate a virtualenv:
+1. Create and activate a virtualenv:
 
             $ virtualenv venv --no-site-packages
             $ source venv/bin/activate
 
-4. Install requirements:
+1. Install requirements:
         
             $ pip install -r requirements.txt
 
-5. Click the link for Dashboard, then the link for Web.
-6. Now you need to edit the WSGI file. Update the following line of code:
+1. Next, click the link for Dashboard, then the link for Web.
+1. Click the "Add a new web app" link on the left; by default this will create an app at your-username.pythonanywhere.com, though if you've signed up for a paid "Web Developer" account you can also specify your own domain name here. Once you've decided on the location of the app, click the "Next" button.
+1. On the next page, click the "Flask" option, and on the next page just keep the default settings and click "Next" again.
+Once the web app has been created (it'll take 20 seconds or so), you'll see a link near the top of the page, under the "Reload web app" button, saying "It is configured via a WSGI file stored at..." and a filename.  Click this, and you get to a page with a text editor.
+1. Put the following lines of code at the start of the WSGI file (changing "your-username" appropriately)
 
-            project_home = u'/home/realpython/mysite'
-to:
+    activate_this = '/home/your-username/flask-boilerplate/venv/bin/activate_this.py'
+    execfile(activate_this, dict(__file__=activate_this))
 
-            project_home = u'/home/realpython/flask-boilerplate'
+1. Then update the following lines of code:
 
-7. Save the file, then click the back button. Click the Reload web app. You're now good to go.
-8. Click the link to view the live app. You should see something similar to this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
+from
+
+    project_home = u'/home/your-username/mysite'
+to
+
+    project_home = u'/home/your-username/flask-boilerplate'
+
+from
+
+    from flask_app import app as application
+to
+
+    from app import app as application
+    
+And save the file.
+
+1. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
+
+Now you're ready to start developing!
+
+Need to PUSH your PythonAnywhere repo back to Github?
+
+1. Start a bash console
+1. Run:
+    ssh-keygen -t rsa
+
+1. Just accept the defaults, then show the public key:
+
+    cat ~/.ssh/id_rsa.pub
+
+1. Log in to GitHub.
+1. Go to the "Account settings" option at the top right (currently a wrench and a screwdriver crossed)
+1. Select "SSH Keys" from the list at the left.
+1. Click the "Add SSH key" button at top right.
+1. Enter a title (I suggest something like "From PythonAnywhere" and then paste the output of the previous "cat" command into the Key box.
+1. Click the green "Add key" button.  You'll be prompted to enter your password.
+
+PUSH and PULL away!
 
 What's next?
 ---------
