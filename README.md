@@ -128,8 +128,8 @@ Deploying to PythonAnywhere
 Once the web app has been created (it'll take 20 seconds or so), you'll see a link near the top of the page, under the "Reload web app" button, saying "It is configured via a WSGI file stored at..." and a filename.  Click this, and you get to a page with a text editor.
 1. Put the following lines of code at the start of the WSGI file (changing "your-username" appropriately)
 
-    activate_this = '/home/your-username/flask-boilerplate/venv/bin/activate_this.py'
-    execfile(activate_this, dict(__file__=activate_this))
+        activate_this = '/home/your-username/flask-boilerplate/venv/bin/activate_this.py'
+        execfile(activate_this, dict(__file__=activate_this))
 
 1. Then update the following lines of code:
 
@@ -150,9 +150,9 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 1. And save the file.
 1. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
 
-Now you're ready to start developing!
+    Now you're ready to start developing!
 
-Need to PUSH your PythonAnywhere repo back to Github?
+**Need to PUSH your PythonAnywhere repo back to Github?**
 
 1. Start a bash console
 1. Run:
