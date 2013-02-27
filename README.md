@@ -152,7 +152,7 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
     Now you're ready to start developing!
 
-**Need to PUSH your PythonAnywhere repo back to Github?**
+***Need to PUSH your PythonAnywhere repo to Github?***
 
 1. Start a bash console
 1. Run:
