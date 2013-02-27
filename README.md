@@ -147,8 +147,7 @@ to
 
     from app import app as application
     
-And save the file.
-
+1. And save the file.
 1. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
 
 Now you're ready to start developing!
