@@ -133,19 +133,19 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
 1. Then update the following lines of code:
 
-from
+    from
 
-    project_home = u'/home/your-username/mysite'
-to
+        project_home = u'/home/your-username/mysite'    
+    to
 
-    project_home = u'/home/your-username/flask-boilerplate'
+        project_home = u'/home/your-username/flask-boilerplate'
 
-from
+    from
 
-    from flask_app import app as application
-to
+        from flask_app import app as application
+    to
 
-    from app import app as application
+        from app import app as application
     
 1. And save the file.
 1. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
