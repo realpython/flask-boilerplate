@@ -156,11 +156,12 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
 1. Start a bash console
 1. Run:
-    ssh-keygen -t rsa
+    
+        ssh-keygen -t rsa
 
 1. Just accept the defaults, then show the public key:
 
-    cat ~/.ssh/id_rsa.pub
+        cat ~/.ssh/id_rsa.pub
 
 1. Log in to GitHub.
 1. Go to the "Account settings" option at the top right (currently a wrench and a screwdriver crossed)
