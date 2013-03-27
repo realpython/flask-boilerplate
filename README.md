@@ -48,6 +48,7 @@ Deploying to Heroku
 1. Signup for [Heroku](https://api.heroku.com/signup)
 2. Login to Heroku and download the [Heroku Toolbelt](https://toolbelt.heroku.com/)
 3. Once installed, open your command-line and run the following command - `heroku login`. Then follow the prompts:
+        
         Enter your Heroku credentials.
         Email: michael@mherman.org
         Password (typing will be hidden): 
