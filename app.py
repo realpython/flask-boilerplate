@@ -32,7 +32,7 @@ def login_required(test):
         else:
             flash('You need to login first.')
             return redirect(url_for('login'))
-    return wrap 
+    return wrap
 '''
 #------------------------------------------------------------------------------#
 # Controllers
@@ -77,7 +77,7 @@ if not app.debug:
 
 # default  port
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
 
 # or specify port
 '''
