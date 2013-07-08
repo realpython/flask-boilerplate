@@ -1,46 +1,69 @@
 [![Flask-Boilerplate](http://www.backwardsteps.com/4bJIj81361722486.png)](#readme)
 ------------------------------------------------------------------------------
 
-Currently in beta ...
-
 Welcome
 -------
-Hello. Want to get started with Flask quickly? Good. You are at the right place. This Flask application framework is pre-configured with Flask-SQLAlchemy, Flask-WTF, and the Twitter Bootstrap frontend. This will get your Flask app up and running on Heroku or PythonAnywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
+Hello. Want to get started with Flask quickly? Good. You came to the right place. This Flask application framework is pre-configured with Flask-SQLAlchemy, Flask-WTF, and the Twitter Bootstrap frontend (among others). This will get your Flask app up and running on Heroku or PythonAnywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
 
 Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
 
-**What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2. It's intended for getting started very quickly and was developed with best intentions in mind. :)
+**What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2.
 
 Project Structure
 --------
+    
+    ├── Procfile
+    ├── Procfile.dev
+    ├── app.py
+    ├── config.py
+    ├── error.log
+    ├── forms.py
+    ├── models.py
+    ├── requirements.txt
+    ├── static
+    │   ├── css
+    │   │   ├── boostrap-responsive.css
+    │   │   └── bootstrap.css
+    │   ├── img
+    │   │   ├── glyphicons-halflings-white.png
+    │   │   └── glyphicons-halflings.png
+    │   └── js
+    │       ├── libs
+    │       │   ├── bootstrap.min.js
+    │       │   ├── jquery.min.js
+    │       │   └── modernizr-2.0.6.min.js
+    │       ├── plugins.js
+    │       └── script.js
+    └── templates
+        ├── 404.html
+        ├── 500.html
+        ├── index.html
+        ├── login.html
+        ├── register.html
+        └── template.html
 
-    flask-boilerplate/
-        static/
-            css/
-                boostrap-responsive.css
-                bootstrap.css
-            img/
-                glyphicons-halflings-white.png
-                glyphicons-halflings.png
-            js/
-                libs/
-                    boostrap.min.js
-                    jquery.min.js
-                    modernizr-2.0.6.min.js
-                plugins.js
-                script.js
-            favicon.ico
-        templates/
-            404.html
-            500.html
-            index.html
-            login.html
-            register.html
-            template.html           
-        app.py
-        error.log
-        forms.py
-        models.py
+Quick Start
+----------
+
+1. Clone the repo
+
+        $ git clone git@github.com:mjhea0/flask-boilerplate.git
+        $ cd flask-boilerplate
+    
+2. Initialize and activate a virtualenv:
+
+        $ virtualenv --no-site-packages env
+        $ source env/bin/activate
+        
+4. Install the dependencies:
+
+        $ pip install -r requirements.txt
+
+5. Run the development server:
+
+        $ python app.py
+        
+6. Navigate to [http://localhost:5000\(http://localhost:5000)
 
 Deploying to Heroku
 ------
@@ -58,7 +81,7 @@ Deploying to Heroku
         Uploading ssh public key /Users/michaelherman/.ssh/id_rsa.pub
 
 1. Activate your virtualenv
-2. Heroku recognizes the dependencies needed through a *requirements.txt* file. Create one using the following command: `pip freeze > requirements.txt`. Now, this will only create the dependencies from the libraries you installed using Pip. If you used easy_install, you will need to add them directly to the file.
+2. Heroku recognizes the dependencies needed through a *requirements.txt* file. Create one using the following command: `pip freeze > requirements.txt`. Now, this will only create the dependencies from the libraries you installed using pip. If you used easy_install, you will need to add them directly to the file.
 3. Create a Procfile. Open up a text editor and save the following text in it:
 
         web: python run.py
@@ -78,26 +101,26 @@ Deploying to Heroku
         
 1. Create a local Git repository:
 
-        git init
-        git add .
-        git commit -m "initial files"
+        $ git init
+        $ git add .
+        $ git commit -m "initial files"
 
 1. Create your app on Heroku:
 
-        heroku create
+        $ heroku create <name_it_if_you_want>
         
 1. Deploy your code to Heroku:
 
-        git push heroku master
-        heroku ps:scale web=1
+        $ git push heroku master
+        $ heroku ps:scale web=1
         
 1. Check to make sure your app is running:
 
-        heroku ps
+        $ heroku ps
         
 1. View the app in your browser:
 
-        heroku open
+        $ heroku open
 
 1. You app should look similar to this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
             
@@ -150,7 +173,7 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
         from app import app as application
     
-1. And save the file.
+1. Save the file.
 1. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
 
     Now you're ready to start developing!
@@ -160,11 +183,11 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 1. Start a bash console
 1. Run:
     
-        ssh-keygen -t rsa
+        $ ssh-keygen -t rsa
 
 1. Just accept the defaults, then show the public key:
 
-        cat ~/.ssh/id_rsa.pub
+        $ cat ~/.ssh/id_rsa.pub
 
 1. Log in to GitHub.
 1. Go to the "Account settings" option at the top right (currently a wrench and a screwdriver crossed)
