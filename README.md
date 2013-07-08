@@ -63,7 +63,7 @@ Quick Start
 
         $ python app.py
         
-6. Navigate to [http://localhost:5000\(http://localhost:5000)
+6. Navigate to [http://localhost:5000](http://localhost:5000)
 
 Deploying to Heroku
 ------
