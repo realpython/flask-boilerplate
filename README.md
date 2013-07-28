@@ -7,6 +7,8 @@ Hello. Want to get started with Flask quickly? Good. You came to the right place
 
 Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
 
+**EXAMPLE APP: [http://flasktaskr.herokuapp.com/](http://flasktaskr.herokuapp.com/)**
+
 **What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2.
 
 Project Structure
