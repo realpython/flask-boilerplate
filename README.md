@@ -126,7 +126,7 @@ Deploying to Heroku
             
 1. Having problems? Look at the Heroku error log:
 
-            $ heroku logs
+        $ heroku logs
 
 Deploying to PythonAnywhere
 ------
@@ -136,17 +136,17 @@ Deploying to PythonAnywhere
 1. Once logged in, you should be on the Consoles tab. Under the header "Start a new console:" click the link for Bash, which will open a new terminal. 
 1. Clone this repo: 
 
-            $ git clone git://github.com/mjhea0/flask-boilerplate.git
-            $ cd flask-boilerplate
+        $ git clone git://github.com/mjhea0/flask-boilerplate.git
+        $ cd flask-boilerplate
             
 1. Create and activate a virtualenv:
 
-            $ virtualenv venv --no-site-packages
-            $ source venv/bin/activate
+        $ virtualenv venv --no-site-packages
+        $ source venv/bin/activate
 
 1. Install requirements:
         
-            $ pip install -r requirements.txt
+        $ pip install -r requirements.txt
 
 1. Next, click the link for Dashboard, then the link for Web.
 1. Click the "Add a new web app" link on the left; by default this will create an app at your-username.pythonanywhere.com, though if you've signed up for a paid "Web Developer" account you can also specify your own domain name here. Once you've decided on the location of the app, click the "Next" button.
