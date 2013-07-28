@@ -13,7 +13,6 @@ Base.query = db_session.query_property()
 
 # set your classes here
 
-
 '''
 class User(Base):
     __tablename__ = 'Users'

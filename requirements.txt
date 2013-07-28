@@ -1,3 +1,4 @@
-Flask
-Flask-WTF
-Flask-SQLAlchemy
+Flask==0.10.1
+Flask-SQLAlchemy==1.0
+Flask-WTF==0.8.4
+
