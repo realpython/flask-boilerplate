@@ -3,8 +3,6 @@ from flask.ext.wtf import Required, EqualTo, validators, Length
 
 # set your classes here
 
-
-
 class RegisterForm(Form):
     name        = TextField('Username', validators = [Required(), Length(min=6, max=25)])
     email       = TextField('Email', validators = [Required(), Length(min=6, max=40)])
@@ -14,7 +12,3 @@ class RegisterForm(Form):
 class LoginForm(Form):
     name        = TextField('Username', [Required()])
     passwd      = PasswordField('Password', [Required()])
-
-
-
-    
