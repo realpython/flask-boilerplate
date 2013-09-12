@@ -43,6 +43,10 @@ def login_required(test):
 def home():
     return render_template("pages/placeholder.home.html")
 
+@app.route('/about')
+def about():
+    return render_template('pages/placeholder.about.html')
+
 @app.route("/login")
 def login():
     form = LoginForm(request.form)
