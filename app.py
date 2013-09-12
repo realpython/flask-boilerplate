@@ -44,11 +44,11 @@ def index():
 '''
 @app.route("/login")
 def login():
-    return render_template("pages/login.html")
+    return render_template("forms/login.html")
 
 @app.route("/register")
 def register():
-    return render_template("pages/register.html")
+    return render_template("forms/register.html")
 '''
 
 # Error Handlers
