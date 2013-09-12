@@ -19,11 +19,11 @@ class User(Base):
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(120), unique=True)
-    passwd = db.Column(db.String(30))
+    password = db.Column(db.String(30))
 
-    def __init__(self, name=None, passwd=None):
+    def __init__(self, name=None, password=None):
         self.name = name
-        self.passwd = passwd
+        self.password = password
 '''
 
 # create tables
