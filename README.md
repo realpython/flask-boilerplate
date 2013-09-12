@@ -21,25 +21,61 @@ Project Structure
     ├── requirements.txt
     ├── static
     │   ├── css
-    │   │   ├── boostrap-responsive.css
-    │   │   └── bootstrap.css
+    │   │   ├── bootstrap-3.0.0.min.css
+    │   │   ├── bootstrap-theme-3.0.0.css
+    │   │   ├── bootstrap-theme-3.0.0.min.css
+    │   │   ├── font-awesome-3.2.1.min.css
+    │   │   ├── layout.forms.css
+    │   │   ├── layout.main.css
+    │   │   ├── main.css
+    │   │   ├── main.quickfix.css
+    │   │   └── main.responsive.css
+    │   ├── font
+    │   │   ├── fontawesome-webfont.eot
+    │   │   ├── fontawesome-webfont.svg
+    │   │   ├── fontawesome-webfont.ttf
+    │   │   ├── fontawesome-webfont.woff
+    │   │   └── FontAwesome.otf
+    │   ├── ico
+    │   │   ├── apple-touch-icon-114-precomposed.png
+    │   │   ├── apple-touch-icon-144-precomposed.png
+    │   │   ├── apple-touch-icon-57-precomposed.png
+    │   │   ├── apple-touch-icon-72-precomposed.png
+    │   │   └── favicon.png
     │   ├── img
-    │   │   ├── glyphicons-halflings-white.png
-    │   │   └── glyphicons-halflings.png
     │   └── js
     │       ├── libs
-    │       │   ├── bootstrap.min.js
-    │       │   ├── jquery.min.js
-    │       │   └── modernizr-2.0.6.min.js
+    │       │   ├── bootstrap-3.0.0.min.js
+    │       │   ├── jquery-1.10.2.min.js
+    │       │   ├── modernizr-2.0.6.min.js
+    │       │   └── respond-1.3.0.min.js
     │       ├── plugins.js
     │       └── script.js
-    └── templates
-        ├── 404.html
-        ├── 500.html
-        ├── index.html
-        ├── login.html
-        ├── register.html
-        └── template.html
+    ├── templates
+    │   ├── errors
+    │   │   ├── 404.html
+    │   │   └── 500.html
+    │   ├── forms
+    │   │   ├── forgot.html
+    │   │   ├── login.html
+    │   │   └── register.html
+    │   ├── layouts
+    │   │   ├── main.html
+    │   │   └── form.html
+    │   └── pages
+    │       ├── placeholder.about.html
+    │       └── placeholder.home.html
+    └── screenshots
+        ├── pages.png
+        └── forms.png
+
+Screenshots
+-----------
+
+![Pages](https://raw.github.com/topsitemakers/flask-boilerplate/master/screenshots/pages.png)
+
+![Forms](https://raw.github.com/topsitemakers/flask-boilerplate/master/screenshots/forms.png)
+
 
 Quick Start
 ----------
