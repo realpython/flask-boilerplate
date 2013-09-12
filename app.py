@@ -40,7 +40,7 @@ def login_required(test):
 #------------------------------------------------------------------------------#
 
 @app.route("/")
-def index():
+def home():
     return render_template("pages/home.html")
 
 @app.route("/login")
