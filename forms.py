@@ -12,3 +12,6 @@ class RegisterForm(Form):
 class LoginForm(Form):
     name        = TextField('Username', [Required()])
     password    = PasswordField('Password', [Required()])
+
+class ForgotForm(Form):
+    email       = TextField('Email', validators = [Required(), Length(min=6, max=40)])
