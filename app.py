@@ -6,6 +6,7 @@ from flask import * # do not use '*'; actually input the dependencies
 from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
+from forms import *
 
 #------------------------------------------------------------------------------#
 # App Config
@@ -41,15 +42,16 @@ def login_required(test):
 @app.route("/")
 def index():
     return render_template("pages/home.html")
-'''
+
 @app.route("/login")
 def login():
-    return render_template("forms/login.html")
+    form = LoginForm(request.form)
+    return render_template("forms/login.html", form = form)
 
 @app.route("/register")
 def register():
-    return render_template("forms/register.html")
-'''
+    form = RegisterForm(request.form)
+    return render_template("forms/register.html", form = form)
 
 # Error Handlers
 
