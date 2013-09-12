@@ -11,4 +11,4 @@ class RegisterForm(Form):
 
 class LoginForm(Form):
     name        = TextField('Username', [Required()])
-    passwd      = PasswordField('Password', [Required()])
+    password    = PasswordField('Password', [Required()])
