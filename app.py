@@ -1,28 +1,29 @@
-#------------------------------------------------------------------------------#
-# Imports
-#------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
+# Imports.
+#----------------------------------------------------------------------------#
 
-from flask import * # do not use '*'; actually input the dependencies
+from flask import * # do not use '*'; actually input the dependencies.
 from flask.ext.sqlalchemy import SQLAlchemy
 import logging
 from logging import Formatter, FileHandler
+from forms import *
 
-#------------------------------------------------------------------------------#
-# App Config
-#------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
+# App Config.
+#----------------------------------------------------------------------------#
 
 app = Flask(__name__)
 app.config.from_object('config')
 #db = SQLAlchemy(app)
 
-# Automatically tear down SQLAlchemy
+# Automatically tear down SQLAlchemy.
 '''
 @app.teardown_request
 def shutdown_session(exception=None):
     db_session.remove()
 '''
 
-# Login required decorator
+# Login required decorator.
 '''
 def login_required(test):
     @wraps(test)
@@ -34,33 +35,43 @@ def login_required(test):
             return redirect(url_for('login'))
     return wrap
 '''
-#------------------------------------------------------------------------------#
-# Controllers
-#------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
+# Controllers.
+#----------------------------------------------------------------------------#
 
-@app.route("/")
-def index():
-    return render_template("index.html")
-'''
-@app.route("/login")
+@app.route('/')
+def home():
+    return render_template('pages/placeholder.home.html')
+
+@app.route('/about')
+def about():
+    return render_template('pages/placeholder.about.html')
+
+@app.route('/login')
 def login():
-    return render_template("login.html")
+    form = LoginForm(request.form)
+    return render_template('forms/login.html', form = form)
 
-@app.route("/register")
+@app.route('/register')
 def register():
-    return render_template("register.html")
-'''
+    form = RegisterForm(request.form)
+    return render_template('forms/register.html', form = form)
 
-# Error Handlers
+@app.route('/forgot')
+def forgot():
+    form = ForgotForm(request.form)
+    return render_template('forms/forgot.html', form = form)
+
+# Error handlers.
 
 @app.errorhandler(500)
 def internal_error(error):
     #db_session.rollback()
-    return render_template('500.html'), 500
+    return render_template('errors/500.html'), 500
 
 @app.errorhandler(404)
 def internal_error(error):
-    return render_template('404.html'), 404
+    return render_template('errors/404.html'), 404
 
 if not app.debug:
     file_handler = FileHandler('error.log')
@@ -71,17 +82,17 @@ if not app.debug:
     app.logger.addHandler(file_handler)
     app.logger.info('errors')
 
-#------------------------------------------------------------------------------#
-# Launch
-#------------------------------------------------------------------------------#
+#----------------------------------------------------------------------------#
+# Launch.
+#----------------------------------------------------------------------------#
 
-# default  port
+# Default port:
 if __name__ == '__main__':
     app.run()
 
-# or specify port
+# Or specify port manually:
 '''
-if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5000))
     app.run(host='0.0.0.0', port=port)
 '''

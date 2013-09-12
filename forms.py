@@ -1,9 +1,7 @@
 from flask.ext.wtf import Form, TextField, PasswordField
 from flask.ext.wtf import Required, EqualTo, validators, Length
 
-# set your classes here
-
-
+# Set your classes here.
 
 class RegisterForm(Form):
     name        = TextField('Username', validators = [Required(), Length(min=6, max=25)])
@@ -13,8 +11,7 @@ class RegisterForm(Form):
 
 class LoginForm(Form):
     name        = TextField('Username', [Required()])
-    passwd      = PasswordField('Password', [Required()])
+    password    = PasswordField('Password', [Required()])
 
-
-
-    
+class ForgotForm(Form):
+    email       = TextField('Email', validators = [Required(), Length(min=6, max=40)])
