@@ -52,14 +52,12 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li {% if request.endpoint == 'home' %} class="active" {% endif %}><a href="{{ url_for('home') }}">Home</a></li>
+            <li {% if request.endpoint == 'about' %} class="active" {% endif %}><a href="{{ url_for('about') }}">About</a></li>
           </ul>
           <ul class="nav navbar-nav pull-right">
-            <li><a href="#signup">Signup</a></li>
-            <li><a href="#login">Login</a></li>
-            <li><a href="#logout">Logout</a></li>
+            <li><a href="{{ url_for('register') }}">Signup</a></li>
+            <li><a href="{{ url_for('login') }}">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
