@@ -40,15 +40,15 @@ def login_required(test):
 
 @app.route("/")
 def index():
-    return render_template("index.html")
+    return render_template("pages/home.html")
 '''
 @app.route("/login")
 def login():
-    return render_template("login.html")
+    return render_template("pages/login.html")
 
 @app.route("/register")
 def register():
-    return render_template("register.html")
+    return render_template("pages/register.html")
 '''
 
 # Error Handlers
