@@ -1,12 +1,12 @@
-{% extends 'layouts/form.html' %}
-{% block title %} - Login{% endblock %}
+{% extends "layouts/form.html" %}
+{% block title %} method="post"Login{% endblock %}
 {% block content %}
-  <h1>Welcome!</h1>
-  <h3>Please login.</h3>
-  <form method="POST" action="">
-    {{ form.name.label }}{{ form.name }}
-    {{ form.password.label }}{{ form.password }}
-    <p><input type="submit" value="Submit" class="btn-primary"></p>
+  <form method="post" action="" class="form">
+    <h3 class="form-heading">Login <a href="{{ url_for('home') }}" title="Back to homepage"><i class="icon icon-home pull-right"></i></a></h3>
+    {{ form.name(class_ = 'form-control first-input', placeholder = form.name.label.text, required = true, autofocus = true) }}
+    {{ form.password(class_ = 'form-control last-input', placeholder = form.password.label.text, required = true) }}
+    <p class="pull-left"><a href="{{ url_for('forgot') }}">Forgot Password?</a></p>
+    <p class="pull-right"><a href="{{ url_for('register') }}">Register</a></p>
+    <input type="submit" value="Submit" class="btn btn-primary btn-lg btn-block">
   </form>
-  <p><em>Need an account? </em><a href="/register">Signup!!</a></p>
 {% endblock %}
