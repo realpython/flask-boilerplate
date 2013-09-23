@@ -1,0 +1,11 @@
+{% extends 'layouts/form.html' %}
+{% block title %}Reset Password{% endblock %}
+{% block content %}
+  <form method="post" class="form form-reset">
+    <h3 class="form-heading">Reset Password <a href="{{ url_for('home') }}" title="Back to homepage"><i class="icon icon-home pull-right"></i></a></h3>
+    {{ form.email(class_ = 'form-control first-input last-input', placeholder = form.email.label.text) }}
+    <p class="pull-left"><a href="{{ url_for('login') }}">Login</a></p>
+    <p class="pull-right"><a href="{{ url_for('register') }}">Register</a></p>
+    <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block">
+  </form>
+{% endblock %}
