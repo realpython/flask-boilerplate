@@ -82,7 +82,7 @@ Project Structure
 
 1. Clone the repo
   ```
-  $ git clone git@github.com:mjhea0/flask-boilerplate.git
+  $ git clone https://github.com/mjhea0/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
     
