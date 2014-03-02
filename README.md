@@ -175,21 +175,18 @@ Deploying to Heroku
 2. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
 3. Once logged in, you should be on the Consoles tab.
 4. Clone this repo: 
-
-  ``
+  ```
   $ git clone git://github.com/mjhea0/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
             
 5. Create and activate a virtualenv:
-
   ```
   $ virtualenv venv --no-site-packages
   $ source venv/bin/activate
   ```
 
 6. Install requirements:
-  
   ```      
   $ pip install -r requirements.txt
   ```
