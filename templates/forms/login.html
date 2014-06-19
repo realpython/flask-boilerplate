@@ -2,7 +2,7 @@
 {% block title %}Login{% endblock %}
 {% block content %}
   <form method="post" class="form">
-    <h3 class="form-heading">Login <a href="{{ url_for('home') }}" title="Back to homepage"><i class="icon icon-home pull-right"></i></a></h3>
+    <h3 class="form-heading">Login <a href="{{ url_for('home') }}" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
     {{ form.name(class_ = 'form-control first-input', placeholder = form.name.label.text, required = true, autofocus = true) }}
     {{ form.password(class_ = 'form-control last-input', placeholder = form.password.label.text, required = true) }}
     <p class="pull-left"><a href="{{ url_for('forgot') }}">Forgot Password?</a></p>
