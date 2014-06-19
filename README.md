@@ -2,6 +2,9 @@
 
 Hello. Want to get started with Flask quickly? Good. You came to the right place. This Flask application framework is pre-configured with **Flask-SQLAlchemy**, **Flask-WTF**, **Fabric**, **Coverage**, and the **Bootstrap** frontend (among others). This will get your Flask app up and running on Heroku or PythonAnywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
 
+![real-python-logo](https://raw.githubusercontent.com/realpython/about/master/rp_small.png)
+Designed for the [Real Python](http://www.realpython.com) course.
+
 Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
 
 **EXAMPLE APP: [http://flasktaskr.herokuapp.com/](http://flasktaskr.herokuapp.com/)**
@@ -10,17 +13,15 @@ Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.fl
 
 Project Structure
 --------
-    
+
   ```sh
   ├── Procfile
   ├── Procfile.dev
   ├── README.md
   ├── app.py
   ├── config.py
-  ├── config.pyc
   ├── error.log
   ├── forms.py
-  ├── forms.pyc
   ├── models.py
   ├── requirements.txt
   ├── static
@@ -85,7 +86,7 @@ Project Structure
   $ git clone https://github.com/mjhea0/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
-    
+
 2. Initialize and activate a virtualenv:
   ```
   $ virtualenv --no-site-packages env
@@ -112,10 +113,10 @@ Deploying to Heroku
 2. Login to Heroku and download the [Heroku Toolbelt](https://toolbelt.heroku.com/)
 3. Once installed, open your command-line and run the following command - `heroku login`. Then follow the prompts:
 
-  ```        
+  ```
   Enter your Heroku credentials.
   Email: michael@mherman.org
-  Password (typing will be hidden): 
+  Password (typing will be hidden):
   Could not find an existing public key.
   Would you like to generate one? [Yn]
   Generating new SSH public key.
@@ -129,7 +130,7 @@ Deploying to Heroku
   ```
   web: python run.py
   ```
-  
+
    Then save the file in your applications root or main directory as *Procfile* (no extension). The word "web" indicates to Heroku that the application will be attached to the HTTP routing stack once deployed.
 
 7. Create a local Git repository (if necessary):
@@ -145,13 +146,13 @@ Deploying to Heroku
   ```
   $ heroku create <name_it_if_you_want>
   ```
-        
+
 9. Deploy your code to Heroku:
 
   ```
   $ git push heroku master
   ```
-        
+
 10. View the app in your browser:
 
   ```
@@ -159,7 +160,7 @@ Deploying to Heroku
   ```
 
 11. You app should look similar to this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
-            
+
 12. Having problems? Look at the Heroku error log:
 
   ```
@@ -168,18 +169,18 @@ Deploying to Heroku
 
 ### Deploying to PythonAnywhere
 
-1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course. 
+1. Install [Git](http://git-scm.com/downloads) and [Python](http://install.python-guide.org/) - if you don't already have them, of course.
 
-  > If you plan on working exclusively within PythonAnywhere, which you can, because it provides a cloud solution for hosting and developing your application, you can skip step one entirely. :) 
+  > If you plan on working exclusively within PythonAnywhere, which you can, because it provides a cloud solution for hosting and developing your application, you can skip step one entirely. :)
 
 2. Sign up for [PythonAnywhere](https://www.pythonanywhere.com/pricing/), if you haven't already
 3. Once logged in, you should be on the Consoles tab.
-4. Clone this repo: 
+4. Clone this repo:
   ```
   $ git clone git://github.com/mjhea0/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
-            
+
 5. Create and activate a virtualenv:
   ```
   $ virtualenv venv --no-site-packages
@@ -187,7 +188,7 @@ Deploying to Heroku
   ```
 
 6. Install requirements:
-  ```      
+  ```
   $ pip install -r requirements.txt
   ```
 
@@ -207,7 +208,7 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
   from
 
   ```
-  project_home = u'/home/your-username/mysite'  
+  project_home = u'/home/your-username/mysite'
   ```
 
   to
@@ -227,7 +228,7 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
   ```
   from app import app as application
   ```
-    
+
 12. Save the file.
 13. Go to the website http://your-username.pythonanywhere.com/ (or your own domain if you specified a different one earlier), and you should see something like this - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/).
 
@@ -237,8 +238,8 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
 1. Start a bash console
 2. Run:
-  
-  ```  
+
+  ```
   $ ssh-keygen -t rsa
   ```
 
@@ -257,7 +258,7 @@ Once the web app has been created (it'll take 20 seconds or so), you'll see a li
 
 PUSH and PULL away!
 
-### What's next? 
+### What's next?
 
 1. Using Heroku? Make sure you deactivate your virtualenv once you're done deploying: `deactivate`
 2. Need to reactivate? (1) Unix - `source venv/bin/activate` (2) Windows - `venv\scripts\activate`
@@ -272,4 +273,4 @@ PUSH and PULL away!
 1. [Flask Documentation](http://flask.pocoo.org/docs/)
 2. [Flask Extensions](http://flask.pocoo.org/extensions/)
 1. [Real Python](http://www.realpythonfortheweb.com) :)
-        
+
