@@ -1,0 +1,19 @@
+## Flask Boilerpate - updated!
+
+Starter App, powered by Real Python
+
+### Quick Start
+
+Clone
+
+```
+git remote rm origin
+git remote add origin <the location of my new git repository>
+git push -u origin master
+```
+
+Run
+
+```
+make server
+```
