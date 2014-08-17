@@ -1,0 +1,13 @@
+{% extends 'layouts/form.html' %}
+{% block title %}Reset Password{% endblock %}
+{% block content %}
+  <form method="post" class="form form-reset">
+    <h3 class="form-heading">Reset Password <a href="/" title="Back to homepage"><i class="fa fa-home pull-right"></i></a></h3>
+    {{ form.email(class_ = 'form-control first-input last-input', placeholder = form.email.label.text) }}
+    <p class="pull-left"><a href="/login">Login</a></p>
+    <p class="pull-right"><a href="/register">Register</a></p>
+    <input type="submit" value="Submit" class="btn btn-lg btn-primary btn-block" disabled>
+    <br>
+    <p>You must add a database as well as Flask-Login to enable user management. See the <a href="http://www.realpython.com">Real Python</a> course for more info!</p>
+  </form>
+{% endblock %}
