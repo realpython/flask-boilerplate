@@ -133,7 +133,7 @@ Deploying to Heroku
 6. Create a Procfile. Open up a text editor and save the following text in it:
 
   ```
-  web: python run.py
+  web: gunicorn app:app --log-file=-
   ```
 
    Then save the file in your applications root or main directory as *Procfile* (no extension). The word "web" indicates to Heroku that the application will be attached to the HTTP routing stack once deployed.
