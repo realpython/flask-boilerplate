@@ -6,7 +6,7 @@ Hello. Want to get started with Flask quickly? Good. You came to the right place
 
 ![real-python-logo](https://raw.githubusercontent.com/realpython/about/master/rp_small.png)
 
-Designed for the [Real Python](http://www.realpython.com) course.
+**Designed for the [Real Python](http://www.realpython.com) course.**
 
 <hr>
 
