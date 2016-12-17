@@ -1,3 +1,6 @@
+# python 2 only!!
+
+
 from fabric.api import local, settings, abort
 from fabric.contrib.console import confirm
 
@@ -6,9 +9,7 @@ from fabric.contrib.console import confirm
 
 def test():
     with settings(warn_only=True):
-        result = local(
-            "python test_tasks.py -v && python test_users.py -v", capture=True
-        )
+        result = local("py.test tests", capture=True)
     if result.failed and not confirm("Tests failed. Continue?"):
         abort("Aborted at user request.")
 
@@ -39,9 +40,7 @@ def heroku():
 
 
 def heroku_test():
-    local(
-        "heroku run python test_tasks.py -v && heroku run python test_users.py -v"
-    )
+    local("heroku run py.test tests")
 
 
 def deploy():
