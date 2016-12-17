@@ -91,12 +91,6 @@ Project Structure
     └── test_page.py
 ```
 
-### Screenshots
-
-![Pages](https://raw.github.com/mjhea0/flask-boilerplate/master/screenshots/pages.png)
-
-![Forms](https://raw.github.com/mjhea0/flask-boilerplate/master/screenshots/forms.png)
-
 ## Quick Start
 
 1. Clone the repo
