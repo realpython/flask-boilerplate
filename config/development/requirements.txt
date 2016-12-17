@@ -1,0 +1,15 @@
+Fabric
+Flask
+Flask-SQLAlchemy
+gunicorn
+Jinja2
+MarkupSafe
+SQLAlchemy
+Werkzeug
+coverage
+ecdsa
+itsdangerous
+paramiko
+pycrypto
+Flask-WTF
+pytest-xdist
