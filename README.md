@@ -79,9 +79,9 @@ Project Structure
 
 ### Screenshots
 
-![Pages](https://raw.github.com/mjhea0/flask-boilerplate/master/screenshots/pages.png)
+![Pages](https://github.com/mjhea0/flask-boilerplate/blob/master/screenshots/pages.png)
 
-![Forms](https://raw.github.com/mjhea0/flask-boilerplate/master/screenshots/forms.png)
+![Forms](https://github.com/mjhea0/flask-boilerplate/blob/master/screenshots/forms.png)
 
 
 ### Quick Start
