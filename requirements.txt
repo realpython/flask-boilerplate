@@ -14,3 +14,5 @@ itsdangerous==0.23
 paramiko==1.12.2
 pycrypto==2.6.1
 wsgiref==0.1.2
+pymongo==3.4.0
+Flask-PyMongo==0.4.1
