@@ -81,16 +81,16 @@ Project Structure
 
 ### Screenshots
 
-![Pages](https://github.com/mjhea0/flask-boilerplate/blob/master/screenshots/pages.png)
+![Pages](https://github.com/realpython/flask-boilerplate/blob/master/screenshots/pages.png)
 
-![Forms](https://github.com/mjhea0/flask-boilerplate/blob/master/screenshots/forms.png)
+![Forms](https://github.com/realpython/flask-boilerplate/blob/master/screenshots/forms.png)
 
 
 ### Quick Start
 
 1. Clone the repo
   ```
-  $ git clone https://github.com/mjhea0/flask-boilerplate.git
+  $ git clone https://github.com/realpython/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
 
@@ -184,7 +184,7 @@ Deploying to Heroku
 3. Once logged in, you should be on the Consoles tab.
 4. Clone this repo:
   ```
-  $ git clone git://github.com/mjhea0/flask-boilerplate.git
+  $ git clone git://github.com/realpython/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
 
