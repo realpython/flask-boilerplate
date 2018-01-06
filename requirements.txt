@@ -3,6 +3,8 @@ Flask-SQLAlchemy
 Flask-WTF
 WTForms
 coverage
+pymongo==3.4.0
+Flask-PyMongo==0.4.1
 # ecdsa
 # paramiko
 # pycrypto

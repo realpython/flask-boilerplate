@@ -4,6 +4,7 @@
 
 from flask import Flask, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
+# from flask_pymongo import PyMongo
 import logging
 from logging import Formatter, FileHandler
 from forms import *
@@ -16,6 +17,7 @@ import os
 app = Flask(__name__)
 app.config.from_object('config')
 #db = SQLAlchemy(app)
+#mongo = PyMongo(app)
 
 # Automatically tear down SQLAlchemy.
 '''
@@ -35,6 +37,12 @@ def login_required(test):
             flash('You need to login first.')
             return redirect(url_for('login'))
     return wrap
+'''
+
+# Config MongoDB
+'''
+app.config['MONGO_DBNAME'] = 'dbname'
+app.config['MONGO_URI'] = 'mongodb://localhost:27017/dbname'
 '''
 #----------------------------------------------------------------------------#
 # Controllers.
