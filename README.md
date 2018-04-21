@@ -96,7 +96,7 @@ Project Structure
 
 2. Initialize and activate a virtualenv:
   ```
-  $ virtualenv --no-site-packages env
+  $ virtualenv env
   $ source env/bin/activate
   ```
 
