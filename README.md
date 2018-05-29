@@ -113,6 +113,27 @@ Project Structure
 6. Navigate to [http://localhost:5000](http://localhost:5000)
 
 
+### Running as a container using Docker
+
+1. Install Docker [https://docs.docker.com/install/](https://docs.docker.com/install/)
+2. Clone the repo
+  ```
+  $ git clone https://github.com/realpython/flask-boilerplate.git
+  $ cd flask-boilerplate
+  ```
+3. Build the image
+  ```
+  $ find . -name "Dockerfile" # verify that you are in the right directory
+  ./Dockerfile
+  $ docker build -t flask-boilerplate .
+  ```
+4. Run the image
+  ```
+  $ docker run --rm -it -p 5000:5000 flask-boilerplate
+  ```
+5. Navigate to [http://localhost:5000](http://localhost:5000)
+
+
 Deploying to Heroku
 ------
 
