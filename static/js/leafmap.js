@@ -1,13 +1,12 @@
-// The first parameter are the coordinates of the center of the map
-// The second parameter is the zoom level
 
-var testData = {
-  max: 8,
+
+/*var testData = {
+  max: 50,
   data: [   {lat: 24.6408, lng:46.7728, count: 3},
         {lat: 50.75, lng:-1.55, count: 1},
-        {lat: 25.6586, lng:-80.3568, count: 11}]
+        {lat: 25.6586, lng:-85.3568, count: 11}]
 };
-
+*/
 
 // {s}, {z}, {x} and {y} are placeholders for map tiles
 // {x} and {y} are the x/y of where you are on the map
@@ -42,4 +41,6 @@ var cfg = {
 var heatmapLayer = new HeatmapOverlay(cfg);
 heatmapLayer.setData(testData);
 
-var map = L.map('map').setView([25.6586, -80.3568], 4, [layer, heatmapLayer]);
+var map = L.map('map').setView([25.6586, -80.3568], 4);
+map.addLayer(layer)
+map.addLayer(heatmapLayer)
