@@ -1,0 +1,23 @@
+body { 
+	font: 12px Arial;
+}
+
+
+path {
+  stroke-width: 2;
+  fill: none;
+}
+
+
+.axis path, .axis line {
+  fill: none;
+  stroke: grey;
+  stroke-width: 1;
+  shape-rendering: crispEdges;
+}
+
+
+.area {
+  fill: #F0F8FF;
+  stroke-width: 0;
+}
