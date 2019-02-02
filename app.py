@@ -12,6 +12,9 @@ from logging import Formatter, FileHandler
 from forms import *
 import os
 
+import random
+
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -44,12 +47,41 @@ def login_required(test):
 #----------------------------------------------------------------------------#
 
 
+class Point:
+    def __init__(self, lat, lng, count):
+        self.lat = lat
+        self.lng = lng
+        self.count = count
+
+    def to_dict(self):
+        return {
+            'lat': self.lat,
+            'lng': self.lng,
+            'count': self.count
+        }
+
+def generateRandomPoints(numPoints):
+    pointList = []
+    for x in range(0, numPoints):
+        pointObj = Point(random.randint(-100, 100), random.randint(-100, 100), random.randint(0, 50))
+        pointList.append(pointObj)
+    return pointList
+
+
 @app.route('/')
 def home():
     df = pd.read_csv('data.csv').drop('Open', axis=1)
     chart_data = df.to_dict(orient='records')
     chart_data = json.dumps(chart_data, indent=2)
-    data = {'chart_data': chart_data}
+
+
+    point_data = generateRandomPoints(5000)
+    df2 = pd.DataFrame.from_records([ point.to_dict() for point in point_data])
+    point_data = df2.to_dict(orient="records")
+    point_data = json.dumps(point_data, indent=2)
+    
+    data = {'chart_data': chart_data, 'point_data': point_data}
+    
     return render_template('pages/placeholder.home.html', data=data)
 
 

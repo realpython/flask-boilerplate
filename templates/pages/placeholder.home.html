@@ -11,14 +11,17 @@
 <script type="text/javascript" src="/static/js/libs/heatmap.js-2.0.5/plugins/leaflet-heatmap/leaflet-heatmap.js"></script>
 
 
+<script>
+	//line graph
+    var graphData = {{ data.chart_data | safe }}
+</script>
+
+
 <div class="page-header">
   <h1>Sticky footer with fixed navbar</h1>
 </div>
 
 <div id='graphDiv'></div>
-<script>
-    var graphData = {{ data.chart_data | safe }}
-</script>
 <script type="text/javascript" src="/static/js/d3graph.js"></script>
 
 
@@ -26,6 +29,15 @@
 
 
 <div id="map" style="height: 750px;"></div>
+
+<script>
+	//heatmap
+    var testData = {
+		max: 50,
+		data: {{ data.point_data | safe  }}
+	}
+</script>
+
 <script type="text/javascript" src="/static/js/leafmap.js"></script>
 
 
