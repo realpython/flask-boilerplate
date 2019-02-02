@@ -2,9 +2,12 @@
 # Imports
 #----------------------------------------------------------------------------#
 
+import json
+
 from flask import Flask, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
+import pandas as pd
 from logging import Formatter, FileHandler
 from forms import *
 import os
@@ -43,7 +46,11 @@ def login_required(test):
 
 @app.route('/')
 def home():
-    return render_template('pages/placeholder.home.html')
+    df = pd.read_csv('data.csv').drop('Open', axis=1)
+    chart_data = df.to_dict(orient='records')
+    chart_data = json.dumps(chart_data, indent=2)
+    data = {'chart_data': chart_data}
+    return render_template('pages/placeholder.home.html', data=data)
 
 
 @app.route('/about')
