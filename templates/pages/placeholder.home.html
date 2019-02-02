@@ -3,117 +3,31 @@
 {% block content %}
 
 <link type="text/css" rel="stylesheet" href="/static/css/d3.css" />
+<link type="text/css" rel="stylesheet" href="/static/js/libs/leaflet/leaflet.css" />
+
+<script type="text/javascript" src="/static/js/libs/d3.min.js"></script>
+<script src="/static/js/libs/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="/static/js/libs/heatmap.js-2.0.5/build/heatmap.min.js"></script>
+<script type="text/javascript" src="/static/js/libs/heatmap.js-2.0.5/plugins/leaflet-heatmap/leaflet-heatmap.js"></script>
+
 
 <div class="page-header">
   <h1>Sticky footer with fixed navbar</h1>
 </div>
 
 <div id='graphDiv'></div>
-
-<script src="http://d3js.org/d3.v3.min.js"></script>
 <script>
     var graphData = {{ data.chart_data | safe }}
-    // Set the dimensions of the svg
-    var margin = {top: 30, right: 50, bottom: 30, left: 50};
-    var svgWidth = 600;
-    var svgHeight = 270;
-    var graphWidth = svgWidth - margin.left - margin.right;
-    var graphHeight = svgHeight - margin.top - margin.bottom;
-    // Parse the date / time
-    var parseDate = d3.time.format("%Y-%m-%d").parse;
-    // Set the ranges
-    var x = d3.time.scale().range([0, graphWidth]);
-    var y = d3.scale.linear().range([graphHeight, 0]);
-    // Define the axes
-    var xAxis = d3.svg.axis().scale(x)
-        .orient("bottom").ticks(5);
-    var yAxis = d3.svg.axis().scale(y)
-        .orient("left").ticks(5);
-    // Define the High line
-    var highLine = d3.svg.line()
-        .x(function(d) { return x(d.Date); })
-        .y(function(d) { return y(d.High); });
-    var closeLine = d3.svg.line()
-        .x(function(d) { return x(d.Date); })
-        .y(function(d) { return y(d.Close); });
-    var lowLine = d3.svg.line()
-        .x(function(d) { return x(d.Date); })
-        .y(function(d) { return y(d.Low); });
-    var area = d3.svg.area()
-      .x(function(d) { return x(d.Date); })
-      .y0(function(d) { return y(d.Low); })
-      .y1(function(d) { return y(d.High); })
-    // Adds the svg canvas
-    var svg = d3.select("#graphDiv")
-      .append("svg")
-        .attr("width", svgWidth)
-        .attr("height", svgHeight)
-      .append("g")
-        .attr("transform", 
-        "translate(" + margin.left + "," + margin.top + ")")
-    // define function
-    function draw(data) {
-      data.forEach(function(d) {
-        d.Date = parseDate(d.Date);
-        d.High = +d.High;
-        d.Close = +d.Close;
-        d.Low = +d.Low;
-      });
-      // Scale the range of the data
-      x.domain(d3.extent(data, function(d) { return d.Date; }));
-      y.domain([d3.min(data, function(d) {
-          return Math.min(d.High, d.Close, d.Low) }),
-          d3.max(data, function(d) {
-          return Math.max(d.High, d.Close, d.Low) })]);
-      // Add the area path.
-      svg.append("path")
-        .datum(data)
-        .attr("class", "area")
-        .attr("d", area)
-      // Add the 2 valueline paths.
-      svg.append("path")
-        .style("stroke", "green")
-        .style("fill", "none")
-        .attr("class", "line")
-        .attr("d", highLine(data));
-      svg.append("path")
-        .style("stroke", "blue")
-        .style("fill", "none")
-        .style("stroke-dasharray", ("3, 3"))
-        .attr("d", closeLine(data));
-      svg.append("path")
-        .style("stroke", "red")
-        .attr("d", lowLine(data));
-      // Add the X Axis
-      svg.append("g")
-        .attr("class", "x axis")
-        .attr("transform", "translate(0," + graphHeight + ")")
-          .call(xAxis);
-      // Add the Y Axis
-      svg.append("g")
-        .attr("class", "y axis")
-        .call(yAxis);
-      svg.append("text")
-        .attr("transform", "translate("+(graphWidth+3)+","+y(graphData[0].High)+")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "start")
-        .style("fill", "green")
-        .text("High");
-      svg.append("text")
-        .attr("transform", "translate("+(graphWidth+3)+","+y(graphData[0].Low)+")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "start")
-        .style("fill", "red")
-        .text("Low");
-      svg.append("text")
-        .attr("transform", "translate("+(graphWidth+3)+","+y(graphData[0].Close)+")")
-        .attr("dy", ".35em")
-        .attr("text-anchor", "start")
-        .style("fill", "blue")
-        .text("Close");
-    };
-	draw(graphData);
 </script>
+<script type="text/javascript" src="/static/js/d3graph.js"></script>
+
+
 <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
+
+
+<div id="map" style="height: 750px;"></div>
+<script type="text/javascript" src="/static/js/leafmap.js"></script>
+
+
 
 {% endblock %}
