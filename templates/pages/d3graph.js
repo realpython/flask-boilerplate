@@ -1,23 +1,7 @@
-{% extends 'layouts/main.html' %}
-{% block title %}Home{% endblock %}
-{% block content %}
+ 
+console.log(data.chart_data);
 
-<link type="text/css" rel="stylesheet" href="/static/css/d3.css" />
-
-
-<div class="page-header">
-  <h1>Sticky footer with fixed navbar</h1>
-</div>
-
-<div id='graphDiv'></div>
-<script>
-    var graphData = {{ data.chart_data | safe }}
-</script>
-<script type="text/javascript" src="/static/js/d3graph.js"></script>
-
-<!--
-<script>
-    var graphData = {{ data.chart_data | safe }}
+ var graphData = data.chart_data
     // Set the dimensions of the svg
     var margin = {top: 30, right: 50, bottom: 30, left: 50};
     var svgWidth = 600;
@@ -117,10 +101,5 @@
         .style("fill", "blue")
         .text("Close");
     };
+
 	draw(graphData);
-</script>
--->
-
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
-
-{% endblock %}
