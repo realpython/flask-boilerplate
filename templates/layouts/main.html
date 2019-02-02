@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <head>
 <meta http-equiv="content-type" content="text/html; charset=utf-8" />
 <title>{% block title %}{% endblock %}</title>
@@ -21,7 +21,7 @@
 
 <!-- favicons -->
 <link rel="shortcut icon" href="/static/ico/favicon.png">
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/apple-touch-icon-144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="/static/ico/favicon.png">
 <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/static/ico/apple-touch-icon-114-precomposed.png">
 <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/static/ico/apple-touch-icon-72-precomposed.png">
 <link rel="apple-touch-icon-precomposed" href="/static/ico/apple-touch-icon-57-precomposed.png">
@@ -32,7 +32,86 @@
 <script src="/static/js/libs/modernizr-2.8.2.min.js"></script>
 <!--[if lt IE 9]><script src="/static/js/libs/respond-1.4.2.min.js"></script><![endif]-->
 <!-- /scripts -->
+<style>
+    .my-navbar {
+        background-color: #68da7c;
+        border-color: #425766;
+    }
 
+    .my-navbar .navbar-brand {
+        color: black;
+    }
+
+    .my-navbar .navbar-brand:hover, .my-navbar .navbar-brand:focus {
+        color: #AAD5FF;
+    }
+
+    .my-navbar .navbar-text {
+        color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-nav > li > a {
+        color: #fff;
+    }
+
+        .my-navbar .navbar-nav > li > a:hover, .my-navbar .navbar-nav > li > a:focus {
+            color: #fff;
+            background-color: #47B447;
+        }
+
+    .my-navbar .navbar-nav > li > .dropdown-menu {
+        background-color: #2894FF;
+    }
+
+    .my-navbar .navbar-nav > li > .dropdown-menu > li > a {
+        color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-nav > li > .dropdown-menu > li > a:hover,
+    .my-navbar .navbar-nav > li > .dropdown-menu > li > a:focus {
+        color: #fff;
+        background-color: #004182;
+    }
+
+    .my-navbar .navbar-nav > li > .dropdown-menu > li > .divider {
+        background-color: #69899f;
+    }
+
+        .my-navbar .navbar-nav > .active > a, .my-navbar .navbar-nav > .active > a:hover, .my-navbar .navbar-nav > .active > a:focus {
+            color: #e5dbdb;
+            background-color: #47B447;
+        }
+
+    .my-navbar .navbar-nav > .open > a, .my-navbar .navbar-nav > .open > a:hover, .my-navbar .navbar-nav > .open > a:focus {
+        color: #e5dbdb;
+        background-color: #425766;
+    }
+
+    .my-navbar .navbar-toggle {
+        border-color: #425766;
+    }
+
+    .my-navbar .navbar-toggle:hover, .my-navbar .navbar-toggle:focus {
+        background-color: #425766;
+    }
+
+    .my-navbar .navbar-toggle .icon-bar {
+        background-color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-collapse,
+    .my-navbar .navbar-form {
+        border-color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-link {
+        color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-link:hover {
+        color: #e5dbdb;
+    }
+</style>
 </head>
 <body>
 
@@ -40,7 +119,7 @@
   <div id="wrap">
 
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top">
+    <div class="navbar my-navbar navbar-fixed-top">
       <div class="container">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -48,7 +127,9 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/">Project name</a>
+          <a class="navbar-brand" href="#">
+              <img src="/static/ico/logo.png"/>
+          </a>
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
@@ -66,10 +147,6 @@
                 <li><a>One more separated link</a></li>
               </ul>
             </li>
-          </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><a href="{{ url_for('register') }}">Signup</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>

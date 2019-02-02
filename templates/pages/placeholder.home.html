@@ -14,21 +14,15 @@
 <script>
 	//line graph
     var graphData = {{ data.chart_data | safe }}
+
 </script>
 
 
 <div class="page-header">
-  <h1>Sticky footer with fixed navbar</h1>
+    <h1>Mood of Tweets</h1>
 </div>
 
-<div id='graphDiv'></div>
-<script type="text/javascript" src="/static/js/d3graph.js"></script>
-
-
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
-
-
-<div id="map" style="height: 750px;"></div>
+<div id="map" style="height: 500px; width: 500px; display:inline-block"></div>
 
 <script>
 	//heatmap
@@ -39,6 +33,12 @@
 </script>
 
 <script type="text/javascript" src="/static/js/leafmap.js"></script>
+
+<div id='graphDiv' style="height: 500px; width: 500px; display:inline-block"></div>
+<script type="text/javascript" src="/static/js/d3graph.js"></script>
+
+
+<p class="lead">Test.</p>
 
 
 
