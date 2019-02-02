@@ -15,6 +15,7 @@ import os
 import random
 
 
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
@@ -81,7 +82,9 @@ def home():
     point_data = json.dumps(point_data, indent=2)
     
     data = {'chart_data': chart_data, 'point_data': point_data}
-    
+
+    print(data)
+
     return render_template('pages/placeholder.home.html', data=data)
 
 
