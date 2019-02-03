@@ -1,5 +1,5 @@
 {% extends 'layouts/main.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}Home | CitySense{% endblock %}
 {% block content %}
 
 <link type="text/css" rel="stylesheet" href="/static/css/d3.css" />
@@ -14,15 +14,7 @@
 <script>
 	//line graph
     var graphData = {{ data.chart_data | safe }}
-
 </script>
-
-
-<div class="page-header">
-    <h1>Mood of Tweets</h1>
-</div>
-
-<div id="map" style="height: 500px; width: 500px; display:inline-block"></div>
 
 <script>
 	//heatmap
@@ -32,14 +24,19 @@
 	}
 </script>
 
-<script type="text/javascript" src="/static/js/leafmap.js"></script>
-
-<div id='graphDiv' style="height: 500px; width: 500px; display:inline-block"></div>
-<script type="text/javascript" src="/static/js/d3graph.js"></script>
 
 
-<p class="lead">Test.</p>
-
-
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">            
+            <div id="map" style="width:100%; height:600px; display: inline-block"></div>
+            <script type="text/javascript" src="/static/js/leafmap.js"></script>
+        </div>
+        <div class="col-sm-6">
+            <div class="square" style="width: 100%; height: 300px; background-color: green"></div>
+            <div class="square" style="width: 100%; height: 300px; background-color: blue"></div>
+        </div>
+    </div>
+</div>
 
 {% endblock %}

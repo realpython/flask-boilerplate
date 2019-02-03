@@ -9,7 +9,7 @@
  * Main elements
  ****************************************************************************/
 html {
-  overflow-y: scroll;
+  overflow-y: visible;
 }
 a {
   cursor: pointer;
@@ -29,8 +29,84 @@ a {
 body {
     background-color: #383535;
 }
+.my-navbar {
+    background-color: #68da7c;
+    border-color: #425766;
+}
 
+    .my-navbar .navbar-brand {
+        color: black;
+    }
 
+        .my-navbar .navbar-brand:hover, .my-navbar .navbar-brand:focus {
+            color: #AAD5FF;
+        }
+
+    .my-navbar .navbar-text {
+        color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-nav > li > a {
+        color: #fff;
+    }
+
+        .my-navbar .navbar-nav > li > a:hover, .my-navbar .navbar-nav > li > a:focus {
+            color: #fff;
+            background-color: #47B447;
+        }
+
+    .my-navbar .navbar-nav > li > .dropdown-menu {
+        background-color: #2894FF;
+    }
+
+        .my-navbar .navbar-nav > li > .dropdown-menu > li > a {
+            color: #d7e2e9;
+        }
+
+            .my-navbar .navbar-nav > li > .dropdown-menu > li > a:hover,
+            .my-navbar .navbar-nav > li > .dropdown-menu > li > a:focus {
+                color: #fff;
+                background-color: #004182;
+            }
+
+        .my-navbar .navbar-nav > li > .dropdown-menu > li > .divider {
+            background-color: #69899f;
+        }
+
+    .my-navbar .navbar-nav > .active > a, .my-navbar .navbar-nav > .active > a:hover, .my-navbar .navbar-nav > .active > a:focus {
+        color: #e5dbdb;
+        background-color: #47B447;
+    }
+
+    .my-navbar .navbar-nav > .open > a, .my-navbar .navbar-nav > .open > a:hover, .my-navbar .navbar-nav > .open > a:focus {
+        color: #e5dbdb;
+        background-color: #425766;
+    }
+
+    .my-navbar .navbar-toggle {
+        border-color: #425766;
+    }
+
+        .my-navbar .navbar-toggle:hover, .my-navbar .navbar-toggle:focus {
+            background-color: #425766;
+        }
+
+        .my-navbar .navbar-toggle .icon-bar {
+            background-color: #d7e2e9;
+        }
+
+    .my-navbar .navbar-collapse,
+    .my-navbar .navbar-form {
+        border-color: #d7e2e9;
+    }
+
+    .my-navbar .navbar-link {
+        color: #d7e2e9;
+    }
+
+        .my-navbar .navbar-link:hover {
+            color: #e5dbdb;
+        }
 /* Main elements end */
 
 
