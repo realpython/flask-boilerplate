@@ -1,10 +1,42 @@
 {% extends 'layouts/main.html' %}
-{% block title %}Home{% endblock %}
+{% block title %}Home | CitySense{% endblock %}
 {% block content %}
 
-<div class="page-header">
-  <h1>Sticky footer with fixed navbar</h1>
+<link type="text/css" rel="stylesheet" href="/static/css/d3.css" />
+<link type="text/css" rel="stylesheet" href="/static/js/libs/leaflet/leaflet.css" />
+
+<script type="text/javascript" src="/static/js/libs/d3.min.js"></script>
+<script src="/static/js/libs/leaflet/leaflet.js"></script>
+<script type="text/javascript" src="/static/js/libs/heatmap.js-2.0.5/build/heatmap.min.js"></script>
+<script type="text/javascript" src="/static/js/libs/heatmap.js-2.0.5/plugins/leaflet-heatmap/leaflet-heatmap.js"></script>
+
+
+<script>
+	//line graph
+    var graphData = {{ data.chart_data | safe }}
+</script>
+
+<script>
+	//heatmap
+    var testData = {
+		max: 50,
+		data: {{ data.point_data | safe  }}
+	}
+</script>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-sm-6">            
+            <div id="map" style="width:100%; height:600px; display: inline-block"></div>
+            <script type="text/javascript" src="/static/js/leafmap.js"></script>
+        </div>
+        <div class="col-sm-6">
+            <div class="square" style="width: 100%; height: 300px; background-color: green"></div>
+            <div class="square" style="width: 100%; height: 300px; background-color: blue"></div>
+        </div>
+    </div>
 </div>
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
 
 {% endblock %}
