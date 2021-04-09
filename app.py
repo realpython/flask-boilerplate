@@ -40,6 +40,9 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
+@app.route('/demo')
+def demo():
+    return render_template('layouts/untitled.html')
 
 @app.route('/')
 def home():
