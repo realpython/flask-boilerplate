@@ -1,7 +1,10 @@
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
-
+import requests
+import pickle
+# from app import app
+from flask import Blueprint, render_template, redirect, request, Response
 from flask import Flask, render_template, request
 # from flask.ext.sqlalchemy import SQLAlchemy
 import logging
@@ -42,6 +45,13 @@ def login_required(test):
 
 @app.route('/demo')
 def demo():
+    return render_template('layouts/untitled.html')
+
+
+@app.route('/submit', methods=['POST', 'GET'])
+def submit_review():
+    post_content = request.form["content"]
+    print(post_content)
     return render_template('layouts/untitled.html')
 
 @app.route('/')

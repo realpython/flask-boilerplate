@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Blockchain based Course Review</title>
+	<meta content="width=device-width, initial-scale=1.0" name="viewport">
+	<meta content="" name="keywords">
+	<meta content="" name="description">
+
+	<!-- Favicons -->
+	<link rel="icon" href="{{ url_for('static', filename='img/favicon.png') }}">
+	<link rel="apple-touch-icon" href="{{ url_for('static', filename='img/apple-touch-icon.png') }}">
+
+	<!-- Google Fonts -->
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+
+	<!-- Bootstrap CSS File -->
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/bootstrap/css/bootstrap.min.css') }}">
+
+	<!-- Libraries CSS Files -->
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/font-awesome/css/font-awesome.min.css') }}">
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/animate/animate.min.css') }}">
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/ionicons/css/ionicons.min.css') }}">
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/owlcarousel/assets/owl.carousel.min.css') }}">
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='lib/lightbox/css/lightbox.min.css') }}">
+
+	<!-- Main Stylesheet File -->
+	<link rel="stylesheet" type= "text/css" href="{{ url_for('static', filename='css/style.css') }}">
+
+	<!-- following 3 line are for search autocomplete feature in course names -->
+	<!-- <meta charset="utf-8"> -->
+	<link rel="stylesheet" href="//code.jquery.com/ui/1.10.4/themes/smoothness/jquery-ui.css">
+	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.js"></script>
+	<!-- till here -->
+
+</head>
+
+<body style="padding-top: 60px">
+
+  <!--==========================
+  Header
+  ============================-->
+  <header id="header" class="fixed-top">
+  	<div class="container">
+
+  		<div class="logo float-left">
+  			<!-- Uncomment below if you prefer to use an image logo -->
+  			<!-- <h1 class="text-light"><a href="#header"><span>NewBiz</span></a></h1> -->
+  			<a href="{{url_for('main.sample')}}" class="scrollto"><img src="{{ url_for('static', filename='img/iit.png') }}" alt="" class="img-fluid"></a>
+  		</div>
+
+  		<nav class="main-nav float-right d-none d-lg-block">
+  			<ul>
+  				<li class="active"><a href="{{ url_for('main.sample') }}">Home</a></li>
+  				<!-- <li><a href="#about">About us</a></li> -->
+  				<li><a href="{{url_for('main.course_search')}}">All reviews</a></li>
+  				<!-- <li><a href="#">Add new</a></li> -->
+  				<!-- <li><a href="#portfolio">Mine</a></li> -->
+  				<!-- <li><a href="#team">Team</a></li> -->
+  				<!-- <li class="drop-down"><a href="">Courses</a>
+  					<ul>
+  						<li><a href="#">Advanced Computer Networks</a></li>
+  						<li><a href="#">Distributed Systems</a></li>
+  						<li><a href="#">Raga and Rhythm</a></li>
+  						<li><a href="#">Principles of Information Security</a></li>
+  						<li><a href="#">Compilers</a></li>
+  					</ul>
+  				</li> -->
+  				{% if not current_user.is_authenticated %}
+  				<li><a href="http://127.0.0.1:5000/login">Login</a></li>
+  				<li><a href="http://127.0.0.1:5000/signup">Sign Up</a></li>
+  				{% endif %}
+  				{% if current_user.is_authenticated %}
+  				<li><a href="http://127.0.0.1:5000/logout">Logout</a></li>
+  				{% endif %}
+  				<!-- <li><a href="#contact">Contact Us</a></li> -->
+  			</ul>
+  		</nav><!-- .main-nav -->
+
+  	</div>
+  </header><!-- #header -->
+
+  {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <ul>
+    {% for message in messages %}
+        <li>{{ message }} </li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+    {% endwith %}
+
+  <main id="main">
+
+
+
+    <!--==========================
+      Contact Section
+      ============================-->
+      <section id="contact">
+      	<div class="container-fluid">
+      		<div class="section-header" >
+      			<h3>Submit Anonymous Review</h3>
+      		</div>
+      		<div class="container">
+      			<div class="row justify-content-center">
+      				<div class="form-group col-md-4 col-md-offset-5 align-center ">
+      					<form action="/submit" class="submit-review" id="textform" method="post">
+      						<div class="form-group">
+      							{{ form.autocomp.label }}: {{ form.autocomp }}
+      							<script>
+      								$(function() {
+      									$.ajax({
+      										url: '{{ url_for("main.autocomplete") }}'
+      									}).done(function (data){
+      										$('#course_name_autocomplete').autocomplete({
+      											source: data,
+      											minLength: 2
+      										});
+      									});
+      								});
+      							</script>
+      						</div>
+      						<!-- <div class="form-group">
+      							<label for="exampleAuthorName">Author Name</label>
+      							<input type="text" class="form-control" id="exampleAuthorName" aria-describedby="AuthorNameHelp" placeholder="Your Name" name="author" required="required">
+      						</div> -->
+      						<div class="form-group">
+      							<label for="exampleReviewText">Review</label>
+      							<textarea class="form-control" id="exampleReviewText" name="content" rows="4" cols="50" placeholder="Write your review here...(Max 2000 characters)" maxlength="2000" style="margin: 0px; width: 518px; height: 235px;" required="required"></textarea>
+      						</div>
+      						<button type="submit" class="btn btn-primary">Submit</button>
+      					</form>
+      				</div>
+      			</div> 
+
+      		</div>
+      	</div>
+      </section><!-- #submit-review-section -->
+
+      <section id="why-us" class="wow fadeIn">
+      <div class="container">
+        <header class="section-header">
+          <h3>Recently Submitted Reviews</h3>
+          
+          <p><b><a href="{{node_address}}/mine">Click here</a></b> to mine recently submitted reviews and view them below.</p>
+        </header>
+
+        <div class="row row-eq-height justify-content-center">
+        	{% for post in posts[:5] %}
+        		<div class="col-lg-8 mb-3">
+		            <div class="card wow bounceInUp">
+		              <div class="card-body">
+		                <h5 class="card-title">{{post.course}}</h5>
+		                {% if post.content|length > 250 %} <p class="card-text">{{post.content[:250]}}...</p>
+		                {% else %}
+		                <p class="card-text">{{post.content}}</p>
+		                {% endif %}
+
+		                <a href="" class="readmore">Posted at: {{readable_time(post.timestamp)}}</a>
+		              </div>
+		            </div>
+		          </div>
+        	{% endfor %}
+
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!--==========================
+    Footer
+    ============================-->
+    <footer id="footer">
+    	<div class="footer-top">
+    		<div class="container">
+    			<div class="row">
+
+    				<div class="col-lg-4 col-md-6 footer-info">
+    					<h3>Course Review system</h3>
+    					<p>Cras fermentum odio eu feugiat lide par naso tierra. Justo eget nada terra videa magna derita valies darta donna mare fermentum iaculis eu non diam phasellus. Scelerisque felis imperdiet proin fermentum leo. Amet volutpat consequat mauris nunc congue.</p>
+    				</div>
+
+    				<div class="col-lg-2 col-md-6 footer-links">
+    					<h4>Useful Links</h4>
+    					<ul>
+    						<li><a href="#">Home</a></li>
+    						<li><a href="#">About us</a></li>
+    						<li><a href="#">Services</a></li>
+    						<li><a href="#">Terms of service</a></li>
+    						<li><a href="#">Privacy policy</a></li>
+    					</ul>
+    				</div>
+
+    				<div class="col-lg-3 col-md-6 footer-contact">
+    					<h4>Contact Us</h4>
+    					<p>
+    						A108 Adam Street <br>
+    						New York, NY 535022<br>
+    						United States <br>
+    						<strong>Phone:</strong> +1 5589 55488 55<br>
+    						<strong>Email:</strong> info@example.com<br>
+    					</p>
+
+    					<div class="social-links">
+    						<a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
+    						<a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
+    						<a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
+    						<a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+    						<a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+    					</div>
+
+    				</div>
+
+    				<div class="col-lg-3 col-md-6 footer-newsletter">
+    					<h4>Our Newsletter</h4>
+    					<p>Tamen quem nulla quae legam multos aute sint culpa legam noster magna veniam enim veniam illum dolore legam minim quorum culpa amet magna export quem marada parida nodela caramase seza.</p>
+    					<form action="" method="post">
+    						<input type="email" name="email"><input type="submit"  value="Subscribe">
+    					</form>
+    				</div>
+
+    			</div>
+    		</div>
+    	</div>
+
+    	<div class="container">
+    		<div class="copyright">
+    			&copy; Copyright <strong>NewBiz</strong>. All Rights Reserved
+    		</div>
+    		<div class="credits">
+        <!--
+          All the links in the footer should remain intact.
+          You can delete the links only if you purchased the pro version.
+          Licensing information: https://bootstrapmade.com/license/
+          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=NewBiz
+      -->
+      Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+  </div>
+</div>
+</footer><!-- #footer -->
+
+	<style>
+		.submit-review textarea {
+		    max-width: 600px;
+		    max-height: 400px;
+		    min-width: 400px;
+		    min-height: 200px;
+		    width: 400px;
+		    height: 200px
+		}
+	</style>
+
+	<a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
+	<!-- Uncomment below i you want to use a preloader -->
+	<!-- <div id="preloader"></div> -->
+
+	<!-- JavaScript Libraries -->
+	<!-- <script src="{{ url_for('static', filename='lib/jquery/jquery.min.js') }}"></script> -->
+	<!-- <script src="{{ url_for('static', filename='lib/jquery/jquery-migrate.min.js') }}"></script> -->
+	<script src="{{ url_for('static', filename='lib/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/easing/easing.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/mobile-nav/mobile-nav.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/wow/wow.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/waypoints/waypoints.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/counterup/counterup.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/owlcarousel/owl.carousel.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/isotope/isotope.pkgd.min.js') }}"></script>
+	<script src="{{ url_for('static', filename='lib/lightbox/js/lightbox.min.js') }}"></script>
+	<!-- Contact Form JavaScript File -->
+	<script src="{{ url_for('static', filename='contactform/contactform.js') }}"></script>
+
+	<!-- Template Main Javascript File -->
+	<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+
+</body>
+</html>

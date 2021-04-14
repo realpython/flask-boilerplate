@@ -53,8 +53,11 @@ textarea {
   <button class="w3-button w3-black w3-padding-large w3-large w3-margin-top">Get Started</button>
   <p><strong>Tip:</strong> Use the resize property to prevent textareas from being resized (disable the "grabber" in the bottom right corner):</p>
 
-<form>
-  <textarea>Some text...</textarea>
+<form action="/submit" class="submit-review" id="textform" method="post">
+    <label for="exampleReviewText">Review</label>
+    <textarea class="form-control" id="exampleReviewText" name="content" rows="4" cols="50" placeholder="Write your review here...(Max 2000 characters)" maxlength="2000" style="margin: 0px; width: 518px; height: 235px;" required="required"></textarea>
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </header>
 
