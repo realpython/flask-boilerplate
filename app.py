@@ -16,7 +16,7 @@ import os
 # App Config.
 #----------------------------------------------------------------------------#
 
-with open('BaseCases.txt','r') as inf:
+with open('BaseCases.txt', 'r') as inf:
     mythDict = eval(inf.read())
 
 
@@ -47,9 +47,10 @@ def login_required(test):
 # Controllers.
 #----------------------------------------------------------------------------#
 
+
 @app.route('/demo')
 def demo():
-    return render_template('layouts/untitled.html')
+    return render_template('layouts/untitled.html', key_list=list(mythDict.keys()), val_list=list(mythDict.values()))
 
 
 @app.route('/submit', methods=['POST', 'GET'])
@@ -57,6 +58,7 @@ def submit_review():
     post_content = request.form["content"]
     print(post_content)
     return render_template('layouts/untitled.html')
+
 
 @app.route('/')
 def home():
@@ -90,7 +92,7 @@ def forgot():
 
 @app.errorhandler(500)
 def internal_error(error):
-    #db_session.rollback()
+    # db_session.rollback()
     return render_template('errors/500.html'), 500
 
 
@@ -98,10 +100,12 @@ def internal_error(error):
 def not_found_error(error):
     return render_template('errors/404.html'), 404
 
+
 if not app.debug:
     file_handler = FileHandler('error.log')
     file_handler.setFormatter(
-        Formatter('%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
+        Formatter(
+            '%(asctime)s %(levelname)s: %(message)s [in %(pathname)s:%(lineno)d]')
     )
     app.logger.setLevel(logging.INFO)
     file_handler.setLevel(logging.INFO)
