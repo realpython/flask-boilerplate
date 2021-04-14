@@ -50,7 +50,7 @@ def login_required(test):
 
 @app.route('/demo')
 def demo():
-    return render_template('layouts/untitled.html', key_list=list(mythDict.keys()), val_list=list(mythDict.values()))
+    return render_template('layouts/untitled.html', key_list=list(mythDict.keys()), val_list=list(mythDict.values()), len = len(mythDict))
 
 
 @app.route('/submit', methods=['POST', 'GET'])
