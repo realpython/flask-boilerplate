@@ -13,6 +13,10 @@ import os
 # App Config.
 #----------------------------------------------------------------------------#
 
+with open('BaseCases.txt','r') as inf:
+    mythDict = eval(inf.read())
+
+
 app = Flask(__name__)
 app.config.from_object('config')
 #db = SQLAlchemy(app)
