@@ -18,6 +18,7 @@ import os
 
 with open('BaseCases.txt', 'r') as inf:
     mythDict = eval(inf.read())
+inf.close()
 
 
 app = Flask(__name__)
@@ -57,7 +58,12 @@ def demo():
 def submit_review():
     post_content = request.form["content"]
     print(post_content)
-    return render_template('layouts/untitled.html')
+    mythDict[post_content] = "undecided"
+    new_dict = open("BaseCases.txt", 'w')
+    new_dict.write(str(mythDict))
+    new_dict.close()
+    return render_template('layouts/untitled.html', key_list=list(mythDict.keys()), val_list=list(mythDict.values()), len = len(mythDict))
+
 
 
 @app.route('/')
