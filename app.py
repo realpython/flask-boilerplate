@@ -80,7 +80,8 @@ def submit_exp():
 
 @app.route('/')
 def home():
-    return render_template('pages/placeholder.home.html')
+    return render_template('wavefire.html')
+    # return render_template('pages/placeholder.home.html')
 
 
 @app.route('/about')
