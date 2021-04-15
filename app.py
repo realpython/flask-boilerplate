@@ -65,6 +65,18 @@ def submit_review():
     return render_template('layouts/untitled.html', key_list=list(mythDict.keys()), val_list=list(mythDict.values()), len = len(mythDict))
 
 
+@app.route('/admin')
+def admin():
+    return render_template('layouts/admin.html',  key_list=list(mythDict.keys()), val_list=list(mythDict.values()), len = len(mythDict))
+
+@app.route('/submitExp', methods=['POST', 'GET'])
+def submit_exp():
+    explaination = request.form["exp"]
+    num = request.form["bdh"]
+    print(explaination)
+    print(num)
+    return render_template('layouts/admin.html',  key_list=list(mythDict.keys()), val_list=list(mythDict.values()), len = len(mythDict))
+
 
 @app.route('/')
 def home():
