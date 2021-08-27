@@ -1,0 +1,24 @@
+name: Pull Request
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run PR stats
+        uses: flowwer-dev/pull-request-stats@v1
+        with:
+          charts: true
+          sort-by: "REVIEWS"
+  asana:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Add to Asana
+        uses: insurify/github-asana-action@v1.0.1
+        with:
+          asana-pat: ${{ secrets.ASANA_TOKEN }}
+          task-comment: "* Pull Request: "
+          trigger-phrase: "\\*\\*Asana Task:\\*\\*"
