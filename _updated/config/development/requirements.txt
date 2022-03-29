@@ -9,7 +9,7 @@ Werkzeug==0.9.4
 coverage==3.7.1
 ecdsa==0.10
 itsdangerous==0.23
-paramiko==1.12.2
+paramiko==2.10.1
 pycrypto==2.6.1
 wsgiref==0.1.2
 Flask-WTF==0.9.4
