@@ -14,17 +14,11 @@ html {
 a {
   cursor: pointer;
 }
-::selection {
-  background: #555;
-  color: #FFF;
-}
-::-moz-selection {
-  background: #555;
-  color: #FFF;
-}
-::-webkit-selection {
-  background: #555;
-  color: #FFF;
+footer svg {
+  vertical-align: -.125em;
+  fill: currentColor;
+  width: 30px;
+  height: 30px;
 }
 /* Main elements end */
 
@@ -34,3 +28,9 @@ a {
  ****************************************************************************/
 
 /* Various other styles end */
+.standout {
+  text-transform: uppercase;
+	background: linear-gradient( 109.6deg,  rgba(61,245,167,1) 11.2%, rgba(9,111,224,1) 91.1% );
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}

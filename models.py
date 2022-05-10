@@ -1,31 +1,41 @@
-from sqlalchemy import create_engine
-from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
-# from sqlalchemy import Column, Integer, String
-# from app import db
+from flask import abort, Blueprint
+from flask_sqlalchemy import SQLAlchemy
+from passlib.hash import sha256_crypt
+from flask_admin import Admin, AdminIndexView, expose
+from flask_admin.menu import MenuLink
+from flask_admin.contrib.sqla import ModelView
+from flask_login import current_user
 
-engine = create_engine('sqlite:///database.db', echo=True)
-db_session = scoped_session(sessionmaker(autocommit=False,
-                                         autoflush=False,
-                                         bind=engine))
-Base = declarative_base()
-Base.query = db_session.query_property()
+db = SQLAlchemy()
 
-# Set your classes here.
+# DEFINE YOUR MODELS HERE
 
-'''
-class User(Base):
-    __tablename__ = 'Users'
-
+class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
-    name = db.Column(db.String(120), unique=True)
-    email = db.Column(db.String(120), unique=True)
-    password = db.Column(db.String(30))
+    username = db.Column(db.String(80), unique=True, nullable=False)
+    email = db.Column(db.String(120), unique=True, nullable=False)
+    password = db.Column(db.String(120), nullable=False)
 
-    def __init__(self, name=None, password=None):
-        self.name = name
-        self.password = password
-'''
+    def checkPassword(self, entered_password):
+        return sha256_crypt.verify(entered_password, self.password)
 
-# Create tables.
-Base.metadata.create_all(bind=engine)
+    def __init__(self, username, email, password):
+        self.username = username
+        self.email = email
+        self.password = sha256_crypt.encrypt(password)
+        return None
+
+# FLASK_ADMIN CONFIGURATION
+class DefaultModelView(ModelView):
+    restricted = True
+
+    def __init__(self, model, session, name=None, category=None, endpoint=None, url=None, **kwargs):
+        self.column_default_sort = ('id', True)
+        super(DefaultModelView, self).__init__(model, session, name=name, category=category, endpoint=endpoint, url=url)
+
+    def is_accessible(self):
+        return current_user.is_admin
+
+    def inaccessible_callback(self, name, **kwargs):
+        abort(401)
+# ---------------------------------------------------------------------------- #

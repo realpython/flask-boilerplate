@@ -2,19 +2,20 @@
 
 ## Welcome
 
-Hello. Want to get started with Flask quickly? Good. You came to the right place. This Flask application framework is pre-configured with **Flask-SQLAlchemy**, **Flask-WTF**, **Fabric**, **Coverage**, and the **Bootstrap** frontend (among others). This will get your Flask app up and running on Heroku or PythonAnywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
+Hello. Want to get started with Flask quickly? Good. You came to the right place. This Flask application framework is pre-configured with **Flask-SQLAlchemy**, **Flask-WTF**, **Flask-Login**, **Flask-Admin**, ~~**Fabric**~~ and the **Bootstrap 5** frontend (among others). This will get your Flask app up and running on Heroku or PythonAnywhere quickly. Use this starter, boilerplate for all you new Flask projects. Cheers!
 
 <hr>
 
-![real-python-logo](https://raw.githubusercontent.com/realpython/about/master/rp_small.png)
+## What's different?
+The Apache 2.0 license is still used for this project, therefore making me provide a changelog of sorts. I basically updated everything to be 2022-level and included a few convenient additions. Here's a list of the changes:
+- Switched anything that can be cdn'd to CDNJS, including Bootstrap, Font Awesome, and jQuery.
+- Updated to Bootstrap 5.1.3 and Fontawesome 6.1.1
+- Removed Fabric
+- Removed Modernizr and the useless Google Analytics ~~(if you can write a Flask app, you could probably configure Google Analytics)~~
+- Pre-configured Flask-SQLAlchemy, Flask-Login, Flask-WTF, and Flask-Admin for you.
+  - This implies that this has a full-fleged user management system already configured for you.
 
-**Designed for the [Real Python](http://www.realpython.com) course.**
-
-<hr>
-
-Preview the skeleton app here - [http://www.flaskboilerplate.com/](http://www.flaskboilerplate.com/)
-
-**EXAMPLE APP: [http://flasktaskr.herokuapp.com/](http://flasktaskr.herokuapp.com/)**
+That's basically it. I suggest you read through the code and see if you can figure out what's going on. The Heroku and PythonAnywhere guides down below MIGHT NOT WORK (I DID NOT CHECK).
 
 **What is Flask?** Flask is a microframework for Python based on Werkzeug and Jinja2.
 
@@ -24,79 +25,53 @@ Project Structure
   ```sh
   ├── Procfile
   ├── Procfile.dev
-  ├── README.md
   ├── app.py
   ├── config.py
+  ├── database.db
   ├── error.log
   ├── forms.py
   ├── models.py
   ├── requirements.txt
   ├── static
-  │   ├── css
-  │   │   ├── bootstrap-3.0.0.min.css
-  │   │   ├── bootstrap-theme-3.0.0.css
-  │   │   ├── bootstrap-theme-3.0.0.min.css
-  │   │   ├── font-awesome-3.2.1.min.css
-  │   │   ├── layout.forms.css
-  │   │   ├── layout.main.css
-  │   │   ├── main.css
-  │   │   ├── main.quickfix.css
-  │   │   └── main.responsive.css
-  │   ├── font
-  │   │   ├── FontAwesome.otf
-  │   │   ├── fontawesome-webfont.eot
-  │   │   ├── fontawesome-webfont.svg
-  │   │   ├── fontawesome-webfont.ttf
-  │   │   └── fontawesome-webfont.woff
-  │   ├── ico
-  │   │   ├── apple-touch-icon-114-precomposed.png
-  │   │   ├── apple-touch-icon-144-precomposed.png
-  │   │   ├── apple-touch-icon-57-precomposed.png
-  │   │   ├── apple-touch-icon-72-precomposed.png
-  │   │   └── favicon.png
-  │   ├── img
-  │   └── js
-  │       ├── libs
-  │       │   ├── bootstrap-3.0.0.min.js
-  │       │   ├── jquery-1.10.2.min.js
-  │       │   ├── modernizr-2.6.2.min.js
-  │       │   └── respond-1.3.0.min.js
-  │       ├── plugins.js
-  │       └── script.js
+  │   ├── css
+  │   │   └── main.css
+  │   ├── ico
+  │   │   ├── apple-touch-icon-114-precomposed.png
+  │   │   ├── apple-touch-icon-144-precomposed.png
+  │   │   ├── apple-touch-icon-57-precomposed.png
+  │   │   ├── apple-touch-icon-72-precomposed.png
+  │   │   └── favicon.png
+  │   ├── img
+  │   └── js
+  │       ├── plugins.js
+  │       └── script.js
   └── templates
+      ├── admin
+      │   └── index.html
       ├── errors
-      │   ├── 404.html
-      │   └── 500.html
+      │   ├── 404.html
+      │   └── 500.html
       ├── forms
-      │   ├── forgot.html
-      │   ├── login.html
-      │   └── register.html
+      │   ├── login.html
+      │   └── register.html
       ├── layouts
-      │   ├── form.html
-      │   └── main.html
+      │   └── main.html
       └── pages
           ├── placeholder.about.html
           └── placeholder.home.html
   ```
 
-### Screenshots
-
-![Pages](https://github.com/realpython/flask-boilerplate/blob/master/screenshots/pages.png)
-
-![Forms](https://github.com/realpython/flask-boilerplate/blob/master/screenshots/forms.png)
-
-
 ### Quick Start
 
 1. Clone the repo
   ```
-  $ git clone https://github.com/realpython/flask-boilerplate.git
+  $ git clone https://github.com/aaronleetw/flask-boilerplate.git
   $ cd flask-boilerplate
   ```
 
 2. Initialize and activate a virtualenv:
   ```
-  $ virtualenv --no-site-packages env
+  $ python -m venv env
   $ source env/bin/activate
   ```
 
@@ -112,6 +87,9 @@ Project Structure
 
 6. Navigate to [http://localhost:5000](http://localhost:5000)
 
+
+---------
+<span style="color: red">The two guides down below MIGHT NOT WORK (I DID NOT CHECK).</span>
 
 Deploying to Heroku
 ------

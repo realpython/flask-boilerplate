@@ -10,13 +10,9 @@
 <!-- /meta -->
 
 <!-- styles -->
-<link type="text/css" rel="stylesheet" href="/static/css/font-awesome-4.1.0.min.css" />
-<link type="text/css" rel="stylesheet" href="/static/css/bootstrap-3.1.1.min.css">
-<link type="text/css" rel="stylesheet" href="/static/css/bootstrap-theme-3.1.1.min.css" />
-<link type="text/css" rel="stylesheet" href="/static/css/layout.main.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link type="text/css" rel="stylesheet" href="/static/css/bootstrap-3.1.1.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css" integrity="sha512-GQGU0fMMi238uA+a/bdWJfpUGKUkBdgfFdgBm72SUQ6BeyWjoY/ton0tEjH+OSH9iP4Dfh+7HM0I9f5eR0L/4w==" crossorigin="anonymous" referrerpolicy="no-referrer" /><link type="text/css" rel="stylesheet" href="/static/css/layout.main.css" />
 <link type="text/css" rel="stylesheet" href="/static/css/main.css" />
-<link type="text/css" rel="stylesheet" href="/static/css/main.responsive.css" />
-<link type="text/css" rel="stylesheet" href="/static/css/main.quickfix.css" />
 <!-- /styles -->
 
 <!-- favicons -->
@@ -28,11 +24,6 @@
 <link rel="shortcut icon" href="/static/ico/favicon.png">
 <!-- /favicons -->
 
-<!-- scripts -->
-<script src="/static/js/libs/modernizr-2.8.2.min.js"></script>
-<!--[if lt IE 9]><script src="/static/js/libs/respond-1.4.2.min.js"></script><![endif]-->
-<!-- /scripts -->
-
 </head>
 <body>
 
@@ -40,51 +31,58 @@
   <div id="wrap">
 
     <!-- Fixed navbar -->
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand" href="/">Project name</a>
-        </div>
-        <div class="collapse navbar-collapse">
-          <ul class="nav navbar-nav">
-            <li {% if request.endpoint == 'home' %} class="active" {% endif %}><a href="{{ url_for('home') }}">Home</a></li>
-            <li {% if request.endpoint == 'about' %} class="active" {% endif %}><a href="{{ url_for('about') }}">About</a></li>
-            <li class="dropdown">
-              <a class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-              <ul class="dropdown-menu">
-                <li><a>Action</a></li>
-                <li><a>Another action</a></li>
-                <li><a>Something else here</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Nav header</li>
-                <li><a>Separated link</a></li>
-                <li><a>One more separated link</a></li>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="/">Project Name</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link {% if request.endpoint == 'home' %} active {% endif %}" href="{{ url_for('home') }}">Home</a>
+            </li>
+            <li class="nav-item" >
+              <a class="nav-link {% if request.endpoint == 'about' %} active {% endif %}" href="{{ url_for('about') }}">About</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                Dropdown
+              </a>
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <li><a class="dropdown-item" href="#">Action</a></li>
+                <li><a class="dropdown-item" href="#">Another action</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Something else here</a></li>
               </ul>
             </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
           </ul>
-          <ul class="nav navbar-nav pull-right">
-            <li><a href="{{ url_for('register') }}">Signup</a></li>
-            <li><a href="{{ url_for('login') }}">Login</a></li>
-          </ul>
-        </div><!--/.nav-collapse -->
+          <div class="d-flex">
+            <a href="{{ url_for('register') }}"><button class="btn btn-primary">Signup</button></a> &nbsp;
+            <a href="{{ url_for('login') }}"><button class="btn btn-secondary">Login</button></a>
+          </div>
+        </div>
       </div>
-    </div>
-
+    </nav>
+    <br>
     <!-- Begin page content -->
     <main id="content" role="main" class="container">
 
-      {% with messages = get_flashed_messages() %}
+      {% with messages = get_flashed_messages(with_categories=True) %}
         {% if messages %}
-          {% for message in messages %}
-            <div class="alert alert-block alert-error fade in">
-              <a class="close" data-dismiss="alert">&times;</a>
+          {% for category, message in messages %}
+            {% if category != 'message' %}
+            <div class="alert alert-{{category}}">
               {{ message }}
             </div>
+            {% else %}
+            <div class="alert alert-danger">
+              {{ message }}
+            </div>
+            {% endif %}
           {% endfor %}
         {% endif %}
       {% endwith %}
@@ -94,26 +92,21 @@
     </main>
 
   </div>
-
-  <div id="footer">
+  <br>
+  <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
     <div class="container">
-      <p>Your Company &copy; All Rights Reserved.</p>
-      {% block footer %}{% endblock %}
+      <div class="col-md-4 d-flex align-items-center">
+        <a href="/" class="mb-3 me-2 mb-md-0 text-muted text-decoration-none lh-1">
+          <svg class="bootstrap" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--! Font Awesome Pro 6.1.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2022 Fonticons, Inc. --><path d="M333.5,201.4c0-22.1-15.6-34.3-43-34.3h-50.4v71.2h42.5C315.4,238.2,333.5,225,333.5,201.4z M517,188.6 c-9.5-30.9-10.9-68.8-9.8-98.1c1.1-30.5-22.7-58.5-54.7-58.5H123.7c-32.1,0-55.8,28.1-54.7,58.5c1,29.3-0.3,67.2-9.8,98.1 c-9.6,31-25.7,50.6-52.2,53.1v28.5c26.4,2.5,42.6,22.1,52.2,53.1c9.5,30.9,10.9,68.8,9.8,98.1c-1.1,30.5,22.7,58.5,54.7,58.5h328.7 c32.1,0,55.8-28.1,54.7-58.5c-1-29.3,0.3-67.2,9.8-98.1c9.6-31,25.7-50.6,52.1-53.1v-28.5C542.7,239.2,526.5,219.6,517,188.6z M300.2,375.1h-97.9V136.8h97.4c43.3,0,71.7,23.4,71.7,59.4c0,25.3-19.1,47.9-43.5,51.8v1.3c33.2,3.6,55.5,26.6,55.5,58.3 C383.4,349.7,352.1,375.1,300.2,375.1z M290.2,266.4h-50.1v78.4h52.3c34.2,0,52.3-13.7,52.3-39.5 C344.7,279.6,326.1,266.4,290.2,266.4z"/></svg>
+        </a>
+        <span class="text-muted">© 2021 Company, Inc</span>
+      </div>
     </div>
-  </div>
+  </footer>
 
   <script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script>window.jQuery || document.write('<script type="text/javascript" src="/static/js/libs/jquery-1.11.1.min.js"><\/script>')</script>
-  <script type="text/javascript" src="/static/js/libs/bootstrap-3.1.1.min.js" defer></script>
-  <script type="text/javascript" src="/static/js/plugins.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.min.js" integrity="sha512-OvBgP9A2JBgiRad/mM36mkzXSXaJE9BEIENnVEmeZdITvwT09xnxLtT4twkCa8m/loMbPHsvPl0T8lRGVBwjlQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>  <script type="text/javascript" src="/static/js/plugins.js" defer></script>
   <script type="text/javascript" src="/static/js/script.js" defer></script>
-  <!-- Google Analytics - Change UA-XXXXX-X to be your site's ID -->
-  <script>
-  window._gaq = [['_setAccount','UAXXXXXXXX1'],['_trackPageview'],['_trackPageLoadTime']];
-  Modernizr.load({
-    load: ('https:' == location.protocol ? '//ssl' : '//www') + '.google-analytics.com/ga.js'
-  });
-  </script>
 
 </body>
 </html>
