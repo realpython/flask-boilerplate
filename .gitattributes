@@ -1,4 +1,2 @@
-static/* linguist-vendored=false
-templates/* linguist-vendored=false
-_updated/app/static/* linguist-vendored=false
-_updated/app/templates/* linguist-vendored=false
+static/** linguist-vendored
+templates/** linguist-vendored
