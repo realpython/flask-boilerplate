@@ -2,9 +2,111 @@
 {% block title %}Home{% endblock %}
 {% block content %}
 
-<div class="page-header">
+<!-- <div class="page-header">
   <h1>Sticky footer with fixed navbar</h1>
-</div>
-<p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p>
+</div> -->
+
+<h2>Notes</h2>
+
+<form id="note-form">
+  <input type="text" id="title" placeholder="Title" required />
+  <textarea id="content" placeholder="Content"></textarea>
+  <button type="submit">Add Note</button>
+</form>
+
+<ul id="notes-list"></ul>
+
+<script>
+  let editingNoteId = null;
+
+  async function loadNotes() {
+    try {
+      const res = await fetch('/api/notes');
+      if (!res.ok) throw new Error('Failed to load notes');
+      const notes = await res.json();
+      const list = document.getElementById('notes-list');
+      list.innerHTML = '';
+      notes.forEach(note => {
+        const li = document.createElement('li');
+        li.innerHTML = `
+          <div style="display: flex; justify-content: space-between; align-items: center;">
+            <div style="flex-grow: 1;">
+              "<strong>${note.title}</strong>": "${note.content}"
+            </div>
+            <div>
+              <button onclick="editNote(${note.id}, '${note.title.replace(/'/g, "\\'")}', \`${note.content}\`)">Edit</button>
+              <button onclick="deleteNote(${note.id})">Delete</button>
+            </div>
+          </div>
+        `;
+        list.appendChild(li);
+      });
+    } catch (error) {
+      alert('Error loading notes: ' + error.message);
+      console.error(error);
+    }
+  }
+
+  document.getElementById('note-form').addEventListener('submit', async e => {
+    e.preventDefault();
+    const title = document.getElementById('title').value;
+    const content = document.getElementById('content').value;
+
+    try {
+      let res;
+      if (editingNoteId) {
+        res = await fetch(`/api/notes/${editingNoteId}`, {
+          method: 'PUT',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content })
+        });
+      } else {
+        res = await fetch('/api/notes', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ title, content })
+        });
+      }
+
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Error: ${errorData.error || res.statusText}`);
+      } else {
+        document.getElementById('note-form').reset();
+        editingNoteId = null;
+        loadNotes();
+      }
+    } catch (error) {
+      alert('Error saving note: ' + error.message);
+      console.error(error);
+    }
+  });
+
+  async function deleteNote(id) {
+    try {
+      const res = await fetch(`/api/notes/${id}`, { method: 'DELETE' });
+      if (!res.ok) {
+        const errorData = await res.json();
+        alert(`Delete failed: ${errorData.error || res.statusText}`);
+      } else {
+        loadNotes();
+      }
+    } catch (error) {
+      alert('Error deleting note: ' + error.message);
+      console.error(error);
+    }
+  }
+
+  function editNote(id, title, content) {
+    document.getElementById('title').value = title;
+    document.getElementById('content').value = content;
+    editingNoteId = id;
+  }
+
+  loadNotes();
+</script>
+
+
+<!-- <p class="lead">Pin a fixed-height footer to the bottom of the viewport in desktop browsers with this custom HTML and CSS. A fixed navbar has been added within <code>#wrap</code> with <code>padding-top: 60px;</code> on the <code>.container</code>.</p> -->
 
 {% endblock %}

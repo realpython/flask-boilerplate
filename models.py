@@ -1,6 +1,10 @@
-from sqlalchemy import create_engine
+from sqlalchemy import create_engine, Column, Integer, String, Text, DateTime
 from sqlalchemy.orm import scoped_session, sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import declarative_base
+from datetime import datetime, timezone
+created_at = Column(DateTime, default=lambda: datetime.now(timezone.utc))
+
+
 # from sqlalchemy import Column, Integer, String
 # from app import db
 
@@ -10,6 +14,22 @@ db_session = scoped_session(sessionmaker(autocommit=False,
                                          bind=engine))
 Base = declarative_base()
 Base.query = db_session.query_property()
+
+class Note(Base):
+    __tablename__ = 'notes'
+
+    id = Column(Integer, primary_key=True)
+    title = Column(String(100), nullable=False)
+    content = Column(Text, nullable=True)
+    created_at = Column(DateTime, default=datetime.utcnow)
+
+    def to_dict(self):
+        return {
+            "id": self.id,
+            "title": self.title,
+            "content": self.content,
+            "created_at": self.created_at.isoformat()
+        }
 
 # Set your classes here.
 
