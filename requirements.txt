@@ -1,8 +1,30 @@
-Fabric
-Flask-SQLAlchemy
-Flask-WTF
-WTForms
-coverage
-# ecdsa
-# paramiko
-# pycrypto
+# Core Flask dependencies
+Flask==2.3.3
+Flask-SQLAlchemy==3.0.5
+Flask-WTF==1.1.1
+Flask-CORS==4.0.0
+
+# Database
+SQLAlchemy==2.0.21
+
+# Forms and validation
+WTForms==3.0.1
+
+# Template engine
+Jinja2==3.1.2
+MarkupSafe==2.1.3
+
+# Security
+Werkzeug==2.3.7
+itsdangerous==2.1.2
+
+# Development utilities
+python-dotenv==1.0.0
+coverage==7.3.2
+
+# Optional: For enhanced JSON handling
+flask-marshmallow==0.15.0
+marshmallow-sqlalchemy==0.29.0
+
+# Deployment
+Fabric==3.2.2

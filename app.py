@@ -1,41 +1,35 @@
 #----------------------------------------------------------------------------#
 # Imports
 #----------------------------------------------------------------------------#
-
-from flask import Flask, render_template, request
-# from flask.ext.sqlalchemy import SQLAlchemy
+from flask import Flask, render_template, request, jsonify
+from flask_cors import CORS  # Add CORS support for API
 import logging
 from logging import Formatter, FileHandler
 from forms import *
 import os
 
+# Import API and models
+from api import api_bp
+from models import Note, db_session
+
 #----------------------------------------------------------------------------#
 # App Config.
 #----------------------------------------------------------------------------#
-
 app = Flask(__name__)
 app.config.from_object('config')
-#db = SQLAlchemy(app)
+CORS(app)  # Enable CORS for all routes
 
-# Automatically tear down SQLAlchemy.
-'''
-@app.teardown_request
+# Register API blueprint
+app.register_blueprint(api_bp)
+
+#----------------------------------------------------------------------------#
+# Database Teardown
+#----------------------------------------------------------------------------#
+@app.teardown_appcontext
 def shutdown_session(exception=None):
+    """Remove database session after each request"""
     db_session.remove()
-'''
 
-# Login required decorator.
-'''
-def login_required(test):
-    @wraps(test)
-    def wrap(*args, **kwargs):
-        if 'logged_in' in session:
-            return test(*args, **kwargs)
-        else:
-            flash('You need to login first.')
-            return redirect(url_for('login'))
-    return wrap
-'''
 #----------------------------------------------------------------------------#
 # Controllers.
 #----------------------------------------------------------------------------#

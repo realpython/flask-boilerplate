@@ -1,0 +1,267 @@
+{% extends "layouts/main.html" %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h1>Notes Dashboard</h1>
+            <p class="lead">Create, manage, and organize your notes with tags</p>
+        </div>
+    </div>
+
+    <!-- Create Note Form -->
+    <div class="row">
+        <div class="col-md-8">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Create New Note</h3>
+                </div>
+                <div class="panel-body">
+                    <form id="createNoteForm">
+                        <div class="form-group">
+                            <label for="noteTitle">Title</label>
+                            <input type="text" class="form-control" id="noteTitle" placeholder="Enter note title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="noteContent">Content</label>
+                            <textarea class="form-control" id="noteContent" rows="5" placeholder="Enter note content" required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="noteTags">Tags</label>
+                            <input type="text" class="form-control" id="noteTags" placeholder="Enter tags separated by commas (e.g., work, important, personal)">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Create Note</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Notes List -->
+    <div class="row">
+        <div class="col-md-12">
+            <h2>Your Notes</h2>
+            <div class="form-group">
+                <input type="text" class="form-control" id="searchNotes" placeholder="Search notes...">
+            </div>
+            <div id="notesList">
+                <!-- Notes will be loaded here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Edit Note Modal -->
+<div class="modal fade" id="editNoteModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                <h4 class="modal-title">Edit Note</h4>
+            </div>
+            <div class="modal-body">
+                <form id="editNoteForm">
+                    <input type="hidden" id="editNoteId">
+                    <div class="form-group">
+                        <label for="editNoteTitle">Title</label>
+                        <input type="text" class="form-control" id="editNoteTitle" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="editNoteContent">Content</label>
+                        <textarea class="form-control" id="editNoteContent" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="editNoteTags">Tags</label>
+                        <input type="text" class="form-control" id="editNoteTags">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick="updateNote()">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+// Load notes on page load
+document.addEventListener('DOMContentLoaded', function() {
+    loadNotes();
+    
+    // Form submission
+    document.getElementById('createNoteForm').addEventListener('submit', function(e) {
+        e.preventDefault();
+        createNote();
+    });
+    
+    // Search functionality
+    document.getElementById('searchNotes').addEventListener('input', function() {
+        searchNotes(this.value);
+    });
+});
+
+// Load all notes
+function loadNotes() {
+    fetch('/api/notes')
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayNotes(data.data);
+            }
+        })
+    .catch(error => console.error('Error:', error));
+}
+
+// Display notes
+function displayNotes(notes) {
+    const notesList = document.getElementById('notesList');
+    notesList.innerHTML = '';
+    
+    if (notes.length === 0) {
+        notesList.innerHTML = '<p>No notes found. Create your first note above!</p>';
+        return;
+    }
+    
+    notes.forEach(note => {
+        const noteElement = createNoteElement(note);
+        notesList.appendChild(noteElement);
+    });
+}
+
+// Create note element
+function createNoteElement(note) {
+    const div = document.createElement('div');
+    div.className = 'panel panel-default';
+    
+    const tags = note.tags ? note.tags.split(',').map(tag => tag.trim()).filter(tag => tag) : [];
+    const tagsHtml = tags.map(tag => `<span class="label label-info">${tag}</span>`).join(' ');
+    
+    div.innerHTML = `
+        <div class="panel-heading">
+            <h3 class="panel-title">${note.title}</h3>
+        </div>
+        <div class="panel-body">
+            <p>${note.content}</p>
+            <div class="tags">${tagsHtml}</div>
+            <br>
+            <small class="text-muted">
+                Created: ${new Date(note.created_at).toLocaleString()}
+                ${note.updated_at !== note.created_at ? '<br>Updated: ' + new Date(note.updated_at).toLocaleString() : ''}
+            </small>
+            <br><br>
+            <button class="btn btn-sm btn-primary" onclick="editNote(${note.id})">Edit</button>
+            <button class="btn btn-sm btn-danger" onclick="deleteNote(${note.id})">Delete</button>
+        </div>
+    `;
+    
+    return div;
+}
+
+// Create new note
+function createNote() {
+    const title = document.getElementById('noteTitle').value;
+    const content = document.getElementById('noteContent').value;
+    const tags = document.getElementById('noteTags').value;
+    
+    fetch('/api/notes', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, content, tags })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            document.getElementById('createNoteForm').reset();
+            loadNotes();
+            alert('Note created successfully!');
+        } else {
+            alert('Error creating note: ' + (data.errors ? data.errors.join(', ') : data.error));
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Edit note
+function editNote(noteId) {
+    fetch(`/api/notes/${noteId}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                const note = data.data;
+                document.getElementById('editNoteId').value = note.id;
+                document.getElementById('editNoteTitle').value = note.title;
+                document.getElementById('editNoteContent').value = note.content;
+                document.getElementById('editNoteTags').value = note.tags || '';
+                $('#editNoteModal').modal('show');
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
+
+// Update note
+function updateNote() {
+    const noteId = document.getElementById('editNoteId').value;
+    const title = document.getElementById('editNoteTitle').value;
+    const content = document.getElementById('editNoteContent').value;
+    const tags = document.getElementById('editNoteTags').value;
+    
+    fetch(`/api/notes/${noteId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ title, content, tags })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.success) {
+            $('#editNoteModal').modal('hide');
+            loadNotes();
+            alert('Note updated successfully!');
+        } else {
+            alert('Error updating note: ' + (data.errors ? data.errors.join(', ') : data.error));
+        }
+    })
+    .catch(error => console.error('Error:', error));
+}
+
+// Delete note
+function deleteNote(noteId) {
+    if (confirm('Are you sure you want to delete this note?')) {
+        fetch(`/api/notes/${noteId}`, {
+            method: 'DELETE'
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                loadNotes();
+                alert('Note deleted successfully!');
+            } else {
+                alert('Error deleting note: ' + data.error);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+    }
+}
+
+// Search notes
+function searchNotes(searchTerm) {
+    if (searchTerm.trim() === '') {
+        loadNotes();
+        return;
+    }
+    
+    fetch(`/api/notes?search=${encodeURIComponent(searchTerm)}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                displayNotes(data.data);
+            }
+        })
+        .catch(error => console.error('Error:', error));
+}
